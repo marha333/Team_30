@@ -1,6 +1,7 @@
 # Team_30
 
-**SetRoute** - self-guided walks and trails for your unique experience of the city. It is meant to be a freemium route generating application for **Android**.
+**SetRoute** - self-guided walks and trails for your unique experience of the city. 
+It is meant to be a freemium route generating application for **Android**.
 
 <img src="https://i.postimg.cc/T37c0dym/pic-route.jpg" width="150">
 
