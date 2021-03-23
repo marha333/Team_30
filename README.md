@@ -15,7 +15,6 @@ Among its main features, we should implement:
   * ...
 
 ### Practical sessions (via Discord)
-https://discord.com/invite/sW262YSJkr  
 24 March 2021 - Team bonding period\
 14 April 2021 - Sprint 1\
 21 April 2021 - Sprint 1
@@ -28,7 +27,8 @@ https://discord.com/invite/sW262YSJkr
 
 26 May 2021   - Sprint 4\
 02 May 2021   - Sprint 4\
-09 May 2021   - Sprint 4 (2 Release, 23:59)
+09 May 2021   - Sprint 4 (2 Release, 23:59)\
+https://discord.com/invite/sW262YSJkr  
 
 ### Team members
 
