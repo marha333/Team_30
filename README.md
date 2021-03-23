@@ -50,4 +50,4 @@ Link to Discord: https://discord.com/invite/sW262YSJkr
 ## Implemented features
 | Ticket #     | Feature name| 
 | :---         |    :----:   |
-| LS-000       |    Feature  |
+| SR-000       |    Feature  |
