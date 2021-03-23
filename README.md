@@ -3,7 +3,7 @@
 **SetRoute** - self-guided walks and trails for your unique experience of the city. 
 It is meant to be a freemium route generating application for **Android**.
 
-<img src="https://i.postimg.cc/DZjn6YVB/phone-ohne-background.jpg" width="150">
+<img src="https://i.postimg.cc/nrqsWJHn/route-in-phone.png" width="150">
 
 Among its main features, we should implement:
   
