@@ -14,7 +14,8 @@ Among its main features, we should implement:
   * Anonymous route rating
   * ...
 
-### Practical sessions (via Discord (https://discord.com/invite/sW262YSJkr))
+### Practical sessions (via Discord)
+https://discord.com/invite/sW262YSJkr
 24 March 2021 - Team bonding period\
 14 April 2021 - Sprint 1\
 21 April 2021 - Sprint 1
