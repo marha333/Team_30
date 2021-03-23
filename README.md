@@ -1,4 +1,4 @@
-# Team_30
+# Team_30 - SETROUTE
 
 **SetRoute** - self-guided walks and trails for your unique experience of the city. 
 It is meant to be a freemium route generating application for **Android**.
