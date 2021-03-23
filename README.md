@@ -29,6 +29,21 @@ Among its main features, we should implement:
 | **Developer**    | Sabine Pils           |
 | **Developer**    | Dmytro Shvets         |
 
+# Practical sessions (via Discord)
+● 24 March 2021 - Team bonding period
+● 14 April 2021 - Sprint 1
+● 21 April 2021 - Sprint 1
+
+● 28 April 2021 - Sprint 2
+● 05 May 2021   - Sprint 2 (1 Release, 23:59)
+
+● 12 May 2021   - Sprint 3
+● 19 May 2021   - Sprint 3
+
+● 26 May 2021   - Sprint 4
+● 02 May 2021   - Sprint 4
+● 09 May 2021   - Sprint 4 (2 Release, 23:59)
+
 ## Implemented features
 | Ticket #     | Feature name| 
 | :---         |    :----:   |
