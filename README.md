@@ -27,7 +27,7 @@ Among its main features, we should implement:
 
 26 May 2021   - Sprint 4\
 02 May 2021   - Sprint 4\
-09 May 2021   - Sprint 4 (2 Release, 23:59)\
+09 May 2021   - Sprint 4 (2 Release, 23:59)
   
 Link to Discord: https://discord.com/invite/sW262YSJkr  
 
