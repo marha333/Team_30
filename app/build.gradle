@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id "org.jetbrains.kotlin.kapt"
+    id "com.google.secrets_gradle_plugin" version "0.6"
 }
 
 apply plugin: 'com.android.application'
@@ -47,6 +48,10 @@ dependencies {
 
     // Dependency Injection
     implementation 'com.google.dagger:hilt-android:2.33-beta'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     kapt 'com.google.dagger:hilt-compiler:2.33-beta'
 
     // Navigation
