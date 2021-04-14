@@ -39,7 +39,6 @@ Link to Discord: https://discord.com/invite/sW262YSJkr
 | **Scrum Master**     | Florian Haid          | 
 | **Senior Developer** | Johannes Erlacher     |
 | **Senior Developer** | Harald Martini        |
-| **Developer**        | Andreas Krüger        |
 | **Developer**        | Bohdan Lailo          |
 | **Developer**        | Olha Pavlenko         |
 | **Developer**        | Sabine Pils           |
