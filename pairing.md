@@ -4,12 +4,11 @@
 | :---             |    :----:             |
 | Dev 1            | Kyryll Dasik          |
 | Dev 2            | Johannes Erlacher     |
-| Dev 3            | Andreas Krüger        |
-| Dev 4            | Bohdan Lailo          |
-| Dev 5            | Harald Martini        |
-| Dev 6            | Olha Pavlenko         |
-| Dev 7            | Sabine Pils           |
-| Dev 8            | Dmytro Shvets         |
+| Dev 3            | Bohdan Lailo          |
+| Dev 4            | Harald Martini        |
+| Dev 5            | Olha Pavlenko         |
+| Dev 6            | Sabine Pils           |
+| Dev 7            | Dmytro Shvets         |
 
 | Syntax      | Dev 1   	  | Dev 2   	  | Dev 3   	  | Dev 4   	  | Dev 5   	  | Dev 6   	  | Dev 7   	  | Dev 8   	  |
 | :---        |    :----:   |    :----:   |    :----:   |    :----:   |    :----:   |    :----:   |    :----:   |    :----:   |
