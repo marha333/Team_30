@@ -19,7 +19,9 @@ class MainActivityTest {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun helloWorldIsDisplayed() {
-        onView(withText("Hello World")).check(matches(isDisplayed()))
+    fun routes_displayed() {
+        onView(withText("route1")).check(matches(isDisplayed()))
+        onView(withText("route2")).check(matches(isDisplayed()))
+        onView(withText("route3")).check(matches(isDisplayed()))
     }
 }
