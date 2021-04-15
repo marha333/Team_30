@@ -9,17 +9,14 @@ import android.widget.TextView
 import at.team30.setroute.R
 import at.team30.setroute.models.Route
 
-class RouteAdapter(context:Context, var items:List<Route>) : ArrayAdapter<Route>(context, 0, items) {
+class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdapter<Route>(context, 0, items) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        val currentItemView = convertView ?: LayoutInflater.from(context).inflate(R.layout.route_item, parent, false)
+        val currentRoute = getItem(position)
 
-            val currentItemView = convertView ?: LayoutInflater.from(context).inflate(R.layout.route_item, parent, false)
+        val nameView : TextView = currentItemView.findViewById(R.id.name)
+        nameView.text = currentRoute?.name ?: "-"
 
-            val currentRoute = getItem(position)
-
-            val nameView : TextView = currentItemView.findViewById(R.id.name)
-            nameView.setText(currentRoute?.name ?: "-")
-
-            return currentItemView
+        return currentItemView
     }
-
 }

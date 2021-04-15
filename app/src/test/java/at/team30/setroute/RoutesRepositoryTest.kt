@@ -1,7 +1,7 @@
 package at.team30.setroute
 
 import at.team30.setroute.infrastructure.RoutesRepository
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class RoutesRepositoryTest {
