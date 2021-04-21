@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import androidx.navigation.Navigation.findNavController
 import at.team30.setroute.R
 import at.team30.setroute.models.Route
 
@@ -13,6 +14,11 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val currentItemView = convertView ?: LayoutInflater.from(context).inflate(R.layout.route_item, parent, false)
         val currentRoute = getItem(position)
+
+        currentItemView.setOnClickListener {
+            val action = RouteListFragmentDirections.actionRoutesFragmentToRouteDetailFragment(currentRoute?.id ?: 1)
+            findNavController(parent).navigate(action)
+        }
 
         val nameView : TextView = currentItemView.findViewById(R.id.name)
         val descriptionView : TextView = currentItemView.findViewById(R.id.description)
