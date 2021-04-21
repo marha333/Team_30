@@ -11,7 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        AppPermissions.checkAndSetupPermission(this, Manifest.permission.ACCESS_FINE_LOCATION,
+        /*AppPermissions.checkAndSetupPermission(this, Manifest.permission.ACCESS_FINE_LOCATION,
             AppPermissions.RequestCode.ACCESS_LOCATION_CODE)
+    */
     }
 }

@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import at.team30.setroute.R
 import at.team30.setroute.application.AppPermissions
@@ -23,7 +24,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsFragment : Fragment() {
 
-    private lateinit var mMap: GoogleMap
+    private lateinit var mMap: GoogleMap;
     private var locationAccessGranted: Int = -1
     @SuppressLint("MissingPermission")
     private val callback = OnMapReadyCallback { googleMap ->
@@ -38,28 +39,52 @@ class MapsFragment : Fragment() {
          */
 
 
-
-
-
+        Log.d("MAP", "Inside Map Ready Callback")
         mMap = googleMap
+
+        locationAccessGranted = AppPermissions.checkAndSetupPermission(context as AppCompatActivity, Manifest.permission.ACCESS_FINE_LOCATION,
+                AppPermissions.RequestCode.ACCESS_LOCATION_CODE)
+        var permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION);
+        requestPermissions(permissions, AppPermissions.RequestCode.ACCESS_LOCATION_CODE.value);
+
         if(locationAccessGranted == PackageManager.PERMISSION_GRANTED){
-            mMap.isMyLocationEnabled=true;
+            mMap!!.isMyLocationEnabled=true
+            Log.d("MAP", "PERMISSION GRANTED")
+        }else {
+            mMap!!.isMyLocationEnabled=false
+            Log.d("MAP", "NO PERMISSION")
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        locationAccessGranted = AppPermissions.checkAndSetupPermission(context as AppCompatActivity, Manifest.permission.ACCESS_FINE_LOCATION,
-                AppPermissions.RequestCode.ACCESS_LOCATION_CODE)
         return inflater.inflate(R.layout.fragment_maps, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
+    }
+
+    @SuppressLint("MissingPermission")
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        Log.d("MAP", "CALLBACK")
+        locationAccessGranted = grantResults[0]
+
+        if(this::mMap.isInitialized){
+            if(locationAccessGranted == PackageManager.PERMISSION_GRANTED){
+                mMap!!.isMyLocationEnabled=true
+                Log.d("MAP", "PERMISSION GRANTED")
+            }else {
+                mMap!!.isMyLocationEnabled = false
+                Log.d("MAP", "NO PERMISSION")
+            }
+        }else{
+            Log.d("MAP", "null")
+
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
