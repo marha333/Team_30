@@ -54,7 +54,7 @@ Link to Discord: https://discord.com/invite/sW262YSJkr
 4. Checkout your current feature branch on the forked repository `git checkout -b SR-XXX`
 5. Commit your changes and stick to the commiting convention `git commit -m "SR-XXX <short description>"`
 
-   If you worked in pair programming, don't forget to add your initials! Your initials must be in ascending order depending on your last name like in the following example: `git commit -m "SR-XXX <short description> [JE,FH]"` where JE stands for Johannes Erlacher and FH for Florian Haid
+   If you worked in pair programming, don't forget to add your initials! Your initials must be in alphabetical order depending on your first name like in the following example: `git commit -m "SR-XXX <short description> [SJ,DM]"` where SJ stands for Jim SMITH and DM for Mary DOE
    
 6. Push your changes to your feature branch and create a pull-request.
 
