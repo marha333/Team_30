@@ -50,7 +50,7 @@ Link to Discord: https://discord.com/invite/sW262YSJkr
 ### Git workflow
 1. Fork the repository.
 2. Set up the remote upstream `git remote add upstream https://github.com/sw21-tug/Team_30.git`
-3. Always pull from the upstream before you start with a new branch `git pull upstream main`
+3. Always pull from the upstream before you start with a new branch `git pull upstream develop`
 4. Checkout your current feature branch on the forked repository `git checkout -b SR-XXX`
 5. Commit your changes and stick to the commiting convention `git commit -m "SR-XXX <short description>"`
 
