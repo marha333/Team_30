@@ -19,7 +19,7 @@ class RoutesListViewModelTest {
     @Test
     fun getRoutes_providesThreeItems() {
         val sut = given_viewModel_with_repository(RoutesRepository())
-        assertEquals(3, sut.getRoutes().value?.size)
+        assertEquals(7, sut.getRoutes().value?.size)
     }
 
     private fun given_viewModel_with_repository(repository: IRoutesRepository): RouteListViewModel {
