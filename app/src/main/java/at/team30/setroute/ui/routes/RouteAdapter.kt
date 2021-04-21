@@ -21,7 +21,18 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
         }
 
         val nameView : TextView = currentItemView.findViewById(R.id.name)
+        val descriptionView : TextView = currentItemView.findViewById(R.id.description)
+        val durationView : TextView = currentItemView.findViewById(R.id.duration)
+        val lengthView : TextView = currentItemView.findViewById(R.id.length)
+
+
         nameView.text = currentRoute?.name ?: "-"
+        descriptionView.text = currentRoute?.description ?: "-"
+        durationView.text = currentRoute?.duration.toString() + " mins" ?: "-"
+        lengthView.text = currentRoute?.length.toString() + " km" ?: "-"
+
+
+
 
         return currentItemView
     }
