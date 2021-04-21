@@ -21,16 +21,26 @@
                 android:background="@color/ic_sample_background_background"
                 tools:ignore="ContentDescription" />
 
-            <TextView
-                android:id="@+id/title"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:gravity="bottom"
-                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
                 android:paddingBottom="5dp"
-                style="@style/Title"
-                tools:ignore="RtlHardcoded,RtlSymmetry" />
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical"
+                tools:ignore="RtlSymmetry">
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Title"/>
+                <TextView
+                    android:id="@+id/information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Information"/>
+            </LinearLayout>
         </RelativeLayout>
 
         <TextView

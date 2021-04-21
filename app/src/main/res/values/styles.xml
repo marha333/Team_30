@@ -8,4 +8,8 @@
         <item name="android:textColor">@color/design_default_color_on_secondary</item>
         <item name="android:textSize">20sp</item>
     </style>
+    <style name="Information" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/design_default_color_on_secondary</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>
