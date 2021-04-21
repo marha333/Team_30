@@ -25,9 +25,7 @@ class MainActivityTest {
         onView(withText("Coffee2")).check(matches(isDisplayed()))
         onView(withText("Parks")).check(matches(isDisplayed()))
         onView(withText("Parks2")).check(matches(isDisplayed()))
-        onView(withText("Sights")).check(matches(isDisplayed()))
-        onView(withText("Sights2")).check(matches(isDisplayed()))
 
-        //"Sights3 not displayed on the display, you need to scroll to reach it
+        //Other routes not displayed on the emulator display, you need to scroll to reach it
     }
 }
