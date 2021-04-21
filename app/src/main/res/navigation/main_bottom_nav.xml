@@ -10,4 +10,9 @@
         android:name="at.team30.setroute.ui.routes.RouteListFragment"
         android:label="fragment_routes"
         tools:layout="@layout/fragment_route_list" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="at.team30.setroute.ui.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>
