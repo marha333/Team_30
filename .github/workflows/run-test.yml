@@ -1,9 +1,6 @@
 name: Run Tests
 
-on: 
-  pull_request:
-    branches: 
-    - develop
+on: pull_request
 
 jobs:
   run-tests:
