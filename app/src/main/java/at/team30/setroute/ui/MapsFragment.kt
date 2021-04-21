@@ -1,6 +1,8 @@
 package at.team30.setroute.ui
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
@@ -8,7 +10,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import at.team30.setroute.R
+import at.team30.setroute.application.AppPermissions
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -20,6 +24,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 class MapsFragment : Fragment() {
 
     private lateinit var mMap: GoogleMap
+    private var locationAccessGranted: Int = -1
     @SuppressLint("MissingPermission")
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -37,13 +42,18 @@ class MapsFragment : Fragment() {
 
 
         mMap = googleMap
-        mMap.isMyLocationEnabled=true;
+        if(locationAccessGranted == PackageManager.PERMISSION_GRANTED){
+            mMap.isMyLocationEnabled=true;
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        locationAccessGranted = AppPermissions.checkAndSetupPermission(context as AppCompatActivity, Manifest.permission.ACCESS_FINE_LOCATION,
+                AppPermissions.RequestCode.ACCESS_LOCATION_CODE)
         return inflater.inflate(R.layout.fragment_maps, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
