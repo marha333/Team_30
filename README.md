@@ -57,9 +57,3 @@ Link to Discord: https://discord.com/invite/sW262YSJkr
    If you worked in pair programming, don't forget to add your initials! Your initials must be in alphabetical order depending on your first name like in the following example: `git commit -m "SR-XXX <short description> [SJ,DM]"` where SJ stands for Jim SMITH and DM for Mary DOE
    
 6. Push your changes to your feature branch and create a pull-request.
-
-
-## Implemented features
-| Ticket #     | Feature name| 
-| :---         |    :----:   |
-| SR-000       |    Feature  |
