@@ -72,6 +72,13 @@ dependencies {
     androidTestImplementation 'com.android.support:support-annotations:28.0.0'
 }
 
+String getApiKey() {
+    def propFile = rootProject.file("./local.properties")
+    def properties = new Properties()
+    properties.load(new FileInputStream(propFile))
+    return properties['MAPS_API_KEY']
+}
+
 // Improved test output
 // Source: https://badvertex.com/2018/04/26/gradle-test-output.html
 tasks.withType(Test) {
