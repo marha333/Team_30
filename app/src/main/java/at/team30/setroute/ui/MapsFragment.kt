@@ -47,13 +47,6 @@ class MapsFragment : Fragment() {
         var permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION);
         requestPermissions(permissions, AppPermissions.RequestCode.ACCESS_LOCATION_CODE.value);
 
-        if(locationAccessGranted == PackageManager.PERMISSION_GRANTED){
-            mMap!!.isMyLocationEnabled=true
-            Log.d("MAP", "PERMISSION GRANTED")
-        }else {
-            mMap!!.isMyLocationEnabled=false
-            Log.d("MAP", "NO PERMISSION")
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater,
