@@ -2,7 +2,8 @@ package at.team30.setroute
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -20,8 +21,11 @@ class MainActivityTest {
 
     @Test
     fun routes_displayed() {
-        onView(withText("route1")).check(matches(isDisplayed()))
-        onView(withText("route2")).check(matches(isDisplayed()))
-        onView(withText("route3")).check(matches(isDisplayed()))
+        onView(withText("Coffee")).check(matches(isDisplayed()))
+        onView(withText("Coffee2")).check(matches(isDisplayed()))
+        onView(withText("Parks")).check(matches(isDisplayed()))
+        onView(withText("Parks2")).check(matches(isDisplayed()))
+
+        //Other routes not displayed on the emulator display, you need to scroll to reach it
     }
 }
