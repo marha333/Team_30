@@ -3,51 +3,30 @@ package at.team30.setroute.ui
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
-import androidx.fragment.app.Fragment
-
+import android.location.Location
 import android.os.Bundle
-import android.util.Log
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import at.team30.setroute.R
-import at.team30.setroute.application.AppPermissions
-
+import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 
+
+/// Source: https://medium.com/@paultr/google-maps-for-android-pt-2-user-location-f7416966aa67
 class MapsFragment : Fragment() {
 
     private lateinit var mMap: GoogleMap;
-    private var locationAccessGranted: Int = -1
-    @SuppressLint("MissingPermission")
-    private val callback = OnMapReadyCallback { googleMap ->
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
+    private lateinit var locationCallback: LocationCallback
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-
-        Log.d("MAP", "Inside Map Ready Callback")
-        mMap = googleMap
-
-        locationAccessGranted = AppPermissions.checkAndSetupPermission(context as AppCompatActivity, Manifest.permission.ACCESS_FINE_LOCATION,
-                AppPermissions.RequestCode.ACCESS_LOCATION_CODE)
-        var permissions = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION);
-        requestPermissions(permissions, AppPermissions.RequestCode.ACCESS_LOCATION_CODE.value);
-
-    }
+    private val locationPermission = 101
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
@@ -57,31 +36,67 @@ class MapsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        mapFragment?.getMapAsync(callback)
-    }
-
-    @SuppressLint("MissingPermission")
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        Log.d("MAP", "CALLBACK")
-        locationAccessGranted = grantResults[0]
-
-        if(this::mMap.isInitialized){
-            if(locationAccessGranted == PackageManager.PERMISSION_GRANTED){
-                mMap!!.isMyLocationEnabled=true
-                Log.d("MAP", "PERMISSION GRANTED")
-            }else {
-                mMap!!.isMyLocationEnabled = false
-                Log.d("MAP", "NO PERMISSION")
+        val mapsFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+        mapsFragment?.getMapAsync { googleMap ->
+            mMap = googleMap
+            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                initMap()
+            } else {
+                this.requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), locationPermission)
             }
-        }else{
-            Log.d("MAP", "null")
-
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    @SuppressLint("MissingPermission")
+    private fun initMap() {
+        mMap.isMyLocationEnabled = true
+        initLocationTracking()
+    }
 
+    @SuppressLint("MissingPermission")
+    private fun initLocationTracking() {
+        locationCallback = object : LocationCallback() {
+            override fun onLocationResult(locationResult: LocationResult?) {
+                locationResult ?: return
+                for (location in locationResult.locations){
+                    updateMapLocation(location)
+                }
+            }
+        }
+
+        fusedLocationClient.requestLocationUpdates(
+                LocationRequest(),
+                locationCallback,
+                Looper.getMainLooper())
+    }
+
+    private fun updateMapLocation(location: Location?) {
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(
+                location?.latitude ?: 0.0,
+                location?.longitude ?: 0.0)))
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(15.0f))
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when(requestCode) { locationPermission ->
+            if (grantResults.isNotEmpty() && permissions.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                initMap()
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if( ::mMap.isInitialized ) {
+            initLocationTracking()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if(::locationCallback.isInitialized) {
+            fusedLocationClient.removeLocationUpdates(locationCallback)
+        }
     }
 }
