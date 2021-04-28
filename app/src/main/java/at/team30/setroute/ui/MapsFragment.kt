@@ -20,7 +20,7 @@ import com.google.android.gms.maps.model.LatLng
 
 
 /// Source: https://medium.com/@paultr/google-maps-for-android-pt-2-user-location-f7416966aa67
-class MapsFragment : Fragment() {
+class MapsFragment : Fragment(), GoogleMap.OnMyLocationButtonClickListener {
 
     private lateinit var mMap: GoogleMap;
     private lateinit var locationCallback: LocationCallback
@@ -69,6 +69,14 @@ class MapsFragment : Fragment() {
                 LocationRequest(),
                 locationCallback,
                 Looper.getMainLooper())
+    }
+
+    @SuppressLint("MissingPermission")
+    override fun onMyLocationButtonClick(): Boolean {
+        fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+            updateMapLocation(location)
+        }
+        return true
     }
 
     private fun updateMapLocation(location: Location?) {
