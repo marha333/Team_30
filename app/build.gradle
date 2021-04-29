@@ -63,7 +63,7 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:1.0.0-alpha10"
 
     // Testing
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:4.13.2'
     testImplementation "androidx.arch.core:core-testing:2.1.0"
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
@@ -80,6 +80,8 @@ dependencies {
     // Mock
     testImplementation "io.mockk:mockk:1.11.0"
     androidTestImplementation "io.mockk:mockk-android:1.11.0"
+    // Stupid workaround to get mockk to work with API 29 devices
+    implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-native:1.0.15'
 }
 
 String getApiKey() {
