@@ -24,15 +24,17 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 style="@style/Description"
-                android:text="Language"></TextView>
+                android:text="Select a language"></TextView>
 
             <Spinner
                 android:id="@+id/spinner_languages"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:gravity="end"
-                android:paddingHorizontal="200dp"
+                android:textAlignment="gravity"
+                android:gravity="right"
+                android:layout_alignParentEnd="true"
+                android:spinnerMode="dialog"
                 style="@style/Description"
                 android:text="example text" />
 
