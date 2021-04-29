@@ -9,15 +9,13 @@
 | Dev 5            | Olha Pavlenko         |
 | Dev 6            | Sabine Pils           |
 | Dev 7            | Dmytro Shvets         |
-| Dev 8            | Andreas Krüger        |
 
-| Syntax             | Kyryll Dasik | Johannes Erlacher | Bohdan Lailo | Harald Martini | Olha Pavlenko | Sabine Pils | Dmytro Shvets | Andreas Krüger |
-| :---               | :----:       | :----:            | :----:       | :----:         | :----:        | :----:      | :----:        | :----:         |
-| Kyryll Dasik       | X            | 04:00             | HH:MM        | HH:MM          | HH:MM         | HH:MM       | 08:00         | X              |
-| Johannes Erlacher  | 04:00        | X                 | HH:MM        | HH:MM          | HH:MM         | 08:00       | HH:MM         | X              |
-| Bohdan Lailo       | HH:MM        | HH:MM             | X            | 06:00          | 06:00         | HH:MM       | HH:MM         | X              |
-| Harald Martini     | HH:MM        | HH:MM             | 06:00        | X              | 06:00         | HH:MM       | HH:MM         | X              |
-| Olha Pavlenko      | HH:MM        | HH:MM             | 06:00        | 06:00          | X             | HH:MM       | HH:MM         | X              |
-| Sabine Pils        | HH:MM        | 08:00             | HH:MM        | HH:MM          | HH:MM         | X           | 04:00         | X              |
-| Dmytro Shvets      | 08:00        | HH:MM             | HH:MM        | HH:MM          | HH:MM         | 04:00       | X             | X              |
-| Andreas Krüger     | X            | X                 | X            | X              | X             | X           | X             | X              |
+| Syntax             | Kyryll Dasik | Johannes Erlacher | Bohdan Lailo | Harald Martini | Olha Pavlenko | Sabine Pils | Dmytro Shvets |
+| :---               | :----:       | :----:            | :----:       | :----:         | :----:        | :----:      | :----:        |
+| Kyryll Dasik       | X            | 08:00             | HH:MM        | 04:00          | HH:MM         | HH:MM       | 08:00         |
+| Johannes Erlacher  | 08:00        | X                 | HH:MM        | HH:MM          | 02:00         | 10:00       | HH:MM         |
+| Bohdan Lailo       | HH:MM        | HH:MM             | X            | 08:00          | 08:00         | HH:MM       | 04:00         |
+| Harald Martini     | 04:00        | HH:MM             | 08:00        | X              | 08:00         | HH:MM       | HH:MM         |
+| Olha Pavlenko      | HH:MM        | 02:00             | 08:00        | 08:00          | X             | 02:00       | HH:MM         |
+| Sabine Pils        | HH:MM        | 10:00             | HH:MM        | HH:MM          | 02:00         | X           | 08:00         |
+| Dmytro Shvets      | 08:00        | HH:MM             | 04:00        | HH:MM          | HH:MM         | 08:00       | X             |
