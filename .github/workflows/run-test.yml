@@ -10,10 +10,10 @@ jobs:
       uses: actions/checkout@v2
 
     - name: set up java
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          check-latest: true
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        check-latest: true
 
     - name: Access MAPS_API_KEY
       env:
