@@ -39,7 +39,6 @@ Link to Discord: https://discord.com/invite/sW262YSJkr
 | **Scrum Master**     | Florian Haid          | 
 | **Senior Developer** | Johannes Erlacher     |
 | **Senior Developer** | Harald Martini        |
-| **Developer**        | Andreas Krüger        |
 | **Developer**        | Bohdan Lailo          |
 | **Developer**        | Olha Pavlenko         |
 | **Developer**        | Sabine Pils           |
@@ -57,3 +56,16 @@ Link to Discord: https://discord.com/invite/sW262YSJkr
    If you worked in pair programming, don't forget to add your initials! Your initials must be in alphabetical order depending on your first name like in the following example: `git commit -m "SR-XXX <short description> [SJ,DM]"` where SJ stands for Jim SMITH and DM for Mary DOE
    
 6. Push your changes to your feature branch and create a pull-request.
+
+
+## Implemented features
+| Ticket #    |              Feature name             | 
+| :---        |    :-----------------------------:    |
+| SR-014      |            Initial app setup          |
+| SR-007      |   Location usage confirmation pop-up  |
+| SR-009      |    Main view: List of routes          |
+| SR-015      |           Button navigation           |
+| SR-010      |           Route description           |
+| SR-020      |          Generating Demo Data         |
+| SR-022      |           City Map button             |
+| SR-024      |      Location usage allowed (Map)     |

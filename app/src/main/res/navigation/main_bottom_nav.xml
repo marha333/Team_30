@@ -9,13 +9,19 @@
         android:id="@+id/routesFragment"
         android:name="at.team30.setroute.ui.routes.RouteListFragment"
         android:label="fragment_routes"
-        tools:layout="@layout/fragment_route_list" >
+        tools:layout="@layout/fragment_route_list">
         <action
-                android:id="@+id/action_routesFragment_to_routeDetailFragment"
-                app:destination="@id/routeDetailFragment"
-                app:enterAnim="@android:anim/slide_in_left"
-                app:launchSingleTop="false" />
+            android:id="@+id/action_routesFragment_to_routeDetailFragment"
+            app:destination="@id/routeDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:launchSingleTop="false" />
     </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="at.team30.setroute.ui.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
+        tools:layout="@layout/fragment_route_list"/>
     <fragment
         android:id="@+id/routeDetailFragment"
         android:name="at.team30.setroute.ui.route_detail.RouteDetailFragment"
