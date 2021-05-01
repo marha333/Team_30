@@ -1,6 +1,11 @@
 package at.team30.setroute.models
 
-data class Route(val id:Int, val name:String, val type:RouteType, val duration: Int, val length : Double, val description : String) {
+import android.graphics.Bitmap
+import android.media.Image
+import com.google.android.gms.maps.model.LatLng
+
+
+data class Route(val id:Int, val name:String, val type:RouteType, val duration: Int, val length: Double, val description: String, val positions: List<LatLng>? = null, var image: Bitmap? = null) {
 
 
     enum class RouteType (val value : Int) {

@@ -1,6 +1,8 @@
 package at.team30.setroute.infrastructure
 
 import at.team30.setroute.models.Route
+import com.google.android.gms.maps.model.LatLng
+
 
 class RoutesRepository : IRoutesRepository {
 
@@ -10,13 +12,16 @@ class RoutesRepository : IRoutesRepository {
     val description_sightseeing : String = "Longer walk through Graz most beautiful momuments."
 
     private val routes : List<Route> = listOf(
-        Route(1, "Coffee", Route.RouteType.COFFEE_LOVERS, 10, 0.5, description_coffee),
-        Route(2, "Coffee2", Route.RouteType.COFFEE_LOVERS, 15, 0.7, description_coffee2),
-        Route(3, "Parks", Route.RouteType.PARK_LOVERS, 20, 3.7, description_parks),
-        Route(4, "Parks2", Route.RouteType.PARK_LOVERS, 30, 5.9, description_parks),
-        Route(5, "Sights", Route.RouteType.SIGHTSEEING_ADDICTED, 20, 6.9, description_sightseeing),
-        Route(6, "Sights2", Route.RouteType.SIGHTSEEING_ADDICTED, 30, 10.6, description_sightseeing),
-        Route(7, "Sights3", Route.RouteType.SIGHTSEEING_ADDICTED, 40, 15.2, description_sightseeing))
+        Route(1, "Coffee", Route.RouteType.COFFEE_LOVERS, 10, 0.5, description_coffee, listOf(
+                LatLng(47.068291509777374,15.4505505), //47.068291509777374, 15.4505505 //TRibeka technikerstraße
+                LatLng(47.06846198659862, 15.434199801525855)//47.06846198659862, 15.434199801525855 omas teekanne
+        )),
+        Route(2, "Coffee2", Route.RouteType.COFFEE_LOVERS, 15, 0.7, description_coffee2 ),
+        Route(3, "Parks", Route.RouteType.PARK_LOVERS, 20, 3.7, description_parks ),
+        Route(4, "Parks2", Route.RouteType.PARK_LOVERS, 30, 5.9, description_parks ),
+        Route(5, "Sights", Route.RouteType.SIGHTSEEING_ADDICTED, 20, 6.9, description_sightseeing ),
+        Route(6, "Sights2", Route.RouteType.SIGHTSEEING_ADDICTED, 30, 10.6, description_sightseeing ),
+        Route(7, "Sights3", Route.RouteType.SIGHTSEEING_ADDICTED, 40, 15.2, description_sightseeing ))
 
     override fun getRoutes(): List<Route> {
         return routes
