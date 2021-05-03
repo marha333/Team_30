@@ -18,6 +18,7 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.*
 import org.hamcrest.TypeSafeMatcher
 import org.hamcrest.core.IsInstanceOf
+import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -36,6 +37,7 @@ class StaticMapViewVisibleTest {
             GrantPermissionRule.grant(
                     "android.permission.ACCESS_FINE_LOCATION")
 
+    @Ignore
     @Test
     fun staticMapViewVisibleTest() {
         val linearLayout = onData(anything())
