@@ -3,6 +3,8 @@ package at.team30.setroute.infrastructure
 import android.graphics.Bitmap
 import android.graphics.Bitmap.createBitmap
 import android.graphics.BitmapFactory
+import android.util.Log
+import android.util.Log.DEBUG
 import android.widget.ImageView
 import at.team30.setroute.BuildConfig
 import okhttp3.OkHttpClient
@@ -20,29 +22,28 @@ class ImageRepository @Inject constructor( private val routesRepository : IRoute
         val route = routesRepository.getRoutesById(route_id)
         if(route != null && image == null)
         {
-            fun run() {
-                var url = "https://maps.googleapis.com/maps/api/staticmap?size=600x400&key=" + apiKey + "&style=feature:all%7Cvisibility=off"
-                var counter = 0
-                if (route.positions != null) {
-                    route.positions.forEach {
-                        url = url + "&markers=color:red%7Clabel:" + (++counter) + "%7C" + it.latitude + "," + it.longitude
-                    }
+            var url = "https://maps.googleapis.com/maps/api/staticmap?size=600x400&key=" + apiKey + "&style=feature:all%7Cvisibility=off"
+            var counter = 0
+            if (route.positions != null) {
+                route.positions.forEach {
+                    url = url + "&markers=color:red%7Clabel:" + (++counter) + "%7C" + it.latitude + "," + it.longitude
                 }
-
-                val request = Request.Builder()
-                    .url(url)
-                        .build()
-
-                            client.newCall(request).execute().use { response ->
-                        if (!response.isSuccessful) throw IOException("Unexpected code $response")
-                                /*
-                        for ((name, value) in response.headers) {
-                            println("$name: $value")
-                        }
-                                 */
-                         image = BitmapFactory.decodeStream(response.body!!.byteStream())
-                    }
             }
+
+
+
+            val request = Request.Builder().url(url).build()
+
+            var response = client.newCall(request).execute()
+
+            if (!response.isSuccessful) throw IOException("Unexpected code $response")
+
+            for ((name, value) in response.headers) {
+                //Log.d("Response", "$name: $value")
+            }
+
+             image = BitmapFactory.decodeStream(response.body!!.byteStream())
+
             map[route_id] = image!!
             return image
         }
