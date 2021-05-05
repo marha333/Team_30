@@ -6,7 +6,7 @@ import org.junit.Test
 
 class RoutesRepositoryTest {
 
-    val sut: RoutesRepository = RoutesRepository()
+    private val sut: RoutesRepository = RoutesRepository()
 
     @Test
     fun getRoutes_returnsThreeElements() {
