@@ -26,6 +26,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="?secondaryBackgroundColor"
+        app:itemTextColor="?android:textColorPrimary"
         app:menu="@menu/main_bottom_nav"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="5dp"
-        android:textColor="@android:color/black"
-        android:textSize="8pt" />
+        android:textColor="@color/titleColor"
+        style="@style/ListName"/>
 
     <TextView
         android:id="@+id/duration"
@@ -29,8 +29,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="5dp"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="8pt" />
+        style="@style/ListInfo" />
 
     <TextView
         android:id="@+id/length"
@@ -38,8 +37,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="5dp"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="8pt" />
+        style="@style/ListInfo" />
 
     <TextView
         android:id="@+id/description"
