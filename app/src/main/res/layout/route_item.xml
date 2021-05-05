@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="5dp"
+        android:maxLines="1"
         android:textColor="@color/titleColor"
         style="@style/ListName"/>
 
@@ -29,6 +30,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="5dp"
+        android:maxLines="1"
         style="@style/ListInfo" />
 
     <TextView
@@ -37,6 +39,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="5dp"
+        android:maxLines="1"
         style="@style/ListInfo" />
 
     <TextView
@@ -46,6 +49,7 @@
         android:layout_gravity="center_horizontal"
         android:textColor="@android:color/darker_gray"
         android:padding="5dp"
+        android:maxLines="2"
         android:textSize="8pt"
         android:translationX="-280dp"
         android:translationY="50dp" />

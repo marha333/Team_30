@@ -1,18 +1,17 @@
 package at.team30.setroute.ui.routes
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.compose.ui.graphics.Color
 import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation.findNavController
 import at.team30.setroute.R
 import at.team30.setroute.models.Route
+import com.zeugmasolutions.localehelper.LocaleHelper
 
 class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdapter<Route>(context, 0, items) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -24,6 +23,7 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
             findNavController(parent).navigate(action)
         }
 
+        val locale = LocaleHelper.getLocale(context)
         val nameView : TextView = currentItemView.findViewById(R.id.name)
         val descriptionView : TextView = currentItemView.findViewById(R.id.description)
         val durationView : TextView = currentItemView.findViewById(R.id.duration)
@@ -34,16 +34,19 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
         val currentTheme = sharedPreference.getString("CurrentTheme","Light") as String
 
 
-        nameView.text = currentRoute?.name ?: "-"
+        //nameView.text = currentRoute?.name ?: "-"
 
         if (currentTheme == "Dark")
             nameView.setTextColor(ContextCompat.getColor(context, R.color.white))
         else
             nameView.setTextColor(ContextCompat.getColor(context, R.color.black))
 
-        descriptionView.text = currentRoute?.description ?: "-"
-        durationView.text = currentRoute?.duration.toString() + " mins" ?: "-"
-        lengthView.text = currentRoute?.length.toString() + " km" ?: "-"
+        nameView.text = currentRoute?.getLocalizedName(locale.language) ?: "-"
+        descriptionView.text = currentRoute?.getLocalizedDescription(locale.language) ?: "-"
+        durationView.text =
+                "${currentRoute?.duration.toString()} ${parent.resources.getString(R.string.unit_min)}"
+        lengthView.text =
+                "${currentRoute?.length.toString()} ${parent.resources.getString(R.string.unit_km)}"
 
         if (currentTheme == "Dark")
             iconView.setImageResource(R.drawable.ic_map_light)
