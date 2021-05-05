@@ -85,6 +85,8 @@ dependencies {
     androidTestImplementation "io.mockk:mockk-android:1.11.0"
     // Stupid workaround to get mockk to work with API 29 devices
     implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-native:1.0.15'
+    //htttp request lib
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
 }
 
 String getApiKey() {

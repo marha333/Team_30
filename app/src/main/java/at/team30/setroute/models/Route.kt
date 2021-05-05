@@ -1,6 +1,6 @@
 package at.team30.setroute.models
 
-import android.content.Context
+import com.google.android.gms.maps.model.LatLng
 
 data class Route(
     val id:Int,
@@ -12,7 +12,9 @@ data class Route(
     val length : Double,
     val description : String,
     val description_de : String,
-    val description_ru : String) {
+    val description_ru : String,
+    val positions: List<LatLng>? = null
+) {
 
     enum class RouteType (val value : Int) {
         PARK_LOVERS(1),
