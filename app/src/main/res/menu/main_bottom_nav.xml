@@ -2,4 +2,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="@string/routes" android:icon="@drawable/ic_map" android:id="@+id/routesFragment"/>
     <item android:title="Map" android:icon="@drawable/ic_navigation_arrow" android:id="@+id/mapsFragment"/>
+    <item android:title="@string/setting" android:icon="@drawable/ic_settings" android:id="@+id/settingsFragment"/>
 </menu>

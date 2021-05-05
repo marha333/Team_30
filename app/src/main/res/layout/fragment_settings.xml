@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.settings.SettingsFragment">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/text_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                style="@style/Description"
+                android:text="@string/select_a_language"></TextView>
+
+            <Spinner
+                android:id="@+id/spinner_languages"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textAlignment="gravity"
+                android:gravity="right"
+                android:layout_alignParentEnd="true"
+                android:spinnerMode="dialog"
+                style="@style/Description"
+                android:text="example text" />
+
+        </RelativeLayout>
+
+        <Switch
+            android:id="@+id/switch_units"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingHorizontal="20dp"
+            style="@style/Description"
+            android:text="@string/switch_to_miles" />
+
+        <Switch
+            android:id="@+id/switch_dark_mode"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingHorizontal="20dp"
+            style="@style/Description"
+            android:text="@string/switch_to_dark_mode" />
+
+    </LinearLayout>
+
+</FrameLayout>

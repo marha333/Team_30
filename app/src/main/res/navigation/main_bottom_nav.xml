@@ -16,6 +16,14 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:launchSingleTop="false" />
     </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="at.team30.setroute.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+    </fragment>
+
     <fragment
         android:id="@+id/mapsFragment"
         android:name="at.team30.setroute.ui.MapsFragment"
