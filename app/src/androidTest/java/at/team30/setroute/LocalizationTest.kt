@@ -25,7 +25,7 @@ import javax.inject.Inject
 @HiltAndroidTest
 class LocalizationTest {
 
-    @get:Rule
+    @get:Rule(order = 1)
     var hiltRule = HiltAndroidRule(this)
 
     @Inject

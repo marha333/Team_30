@@ -11,6 +11,7 @@ import at.team30.setroute.infrastructure.DependencyInjection
 import at.team30.setroute.infrastructure.IRoutesRepository
 import at.team30.setroute.models.Route
 import at.team30.setroute.ui.MainActivity
+import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
@@ -24,7 +25,7 @@ import javax.inject.Inject
 @HiltAndroidTest
 class MainActivityTest {
 
-    @get:Rule(order = 0)
+    @get:Rule(order = 1)
     var hiltRule = HiltAndroidRule(this)
 
     @Inject

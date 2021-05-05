@@ -7,4 +7,6 @@
     <string name="switch_to_dark_mode">Zu Dark Mode wechseln</string>
     <string name="cancel">Abbrechen</string>
     <string name="map">Karte</string>
+    <string name="unit_km">km</string>
+    <string name="unit_min">min</string>
 </resources>

@@ -29,8 +29,10 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
         val locale = LocaleHelper.getLocale(context)
         nameView.text = currentRoute?.getLocalizedName(locale.language) ?: "-"
         descriptionView.text = currentRoute?.getLocalizedDescription(locale.language) ?: "-"
-        durationView.text = currentRoute?.duration.toString() + " mins" ?: "-"
-        lengthView.text = currentRoute?.length.toString() + " km" ?: "-"
+        durationView.text =
+            "${currentRoute?.duration.toString()} ${parent.resources.getString(R.string.unit_min)}"
+        lengthView.text =
+            "${currentRoute?.length.toString()} ${parent.resources.getString(R.string.unit_km)}"
 
         return currentItemView
     }

@@ -37,7 +37,8 @@ class RouteDetailFragment : Fragment() {
         val name = view.findViewById<TextView>(R.id.title)
         name.text = route?.getLocalizedName(locale.language)
         val information = view.findViewById<TextView>(R.id.information)
-        information.text = (route?.length?.toString() ?: "-") + " km  / " + (route?.duration?.toString() ?: "-") + " min"
+        information.text =
+            "${route?.length?.toString() ?: "-"} ${getString(R.string.unit_km)} / ${route?.duration?.toString() ?: "-"} ${getString(R.string.unit_min)}"
         val description = view.findViewById<TextView>(R.id.description)
         description.text = route?.getLocalizedDescription(locale.language)
     }
