@@ -13,7 +13,7 @@ data class Route(
     val description : String,
     val description_de : String,
     val description_ru : String,
-    val positions: List<LatLng>? = null
+    val positions: List<LatLng>? =listOf(LatLng(47.071638357707506, 15.438447512227432))
 ) {
 
     enum class RouteType (val value : Int) {

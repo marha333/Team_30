@@ -19,7 +19,23 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_sample_layer"
                 android:background="@color/ic_sample_background_background"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                android:visibility="visible"/>
+            <ImageView
+                android:id="@+id/connectionError"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_signal_cellular_connected_no_internet_4_bar_24"
+                android:background="@color/ic_launcher_background"
+                tools:ignore="ContentDescription"
+                android:visibility="invisible"/>
+            <ImageView
+                android:id="@+id/static_map_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:ignore="ContentDescription"
+                android:visibility="invisible"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"

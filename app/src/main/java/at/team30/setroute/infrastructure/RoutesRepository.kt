@@ -1,6 +1,8 @@
 package at.team30.setroute.infrastructure
 
 import at.team30.setroute.models.Route
+import com.google.android.gms.maps.model.LatLng
+
 
 class RoutesRepository : IRoutesRepository {
 
@@ -24,7 +26,10 @@ class RoutesRepository : IRoutesRepository {
         Route(1,
             "Coffee", "Kaffee", "Кофе",
             Route.RouteType.COFFEE_LOVERS, 10, 0.5,
-            description_coffee, description_coffee_de, description_coffee_ru),
+            description_coffee, description_coffee_de, description_coffee_ru,
+            listOf(
+                LatLng(47.068291509777374,15.4505505), //47.068291509777374, 15.4505505 //TRibeka technikerstraße
+                LatLng(47.06846198659862, 15.434199801525855))),//47.06846198659862, 15.434199801525855 omas teekanne),
         Route(2, "Coffee2", "Kaffee2", "Кофе2",
             Route.RouteType.COFFEE_LOVERS, 15, 0.7,
             description_coffee2, description_coffee2_de, description_coffee2_ru),
