@@ -20,7 +20,7 @@ Among its main features, we should implement:
 21 April 2021 - Sprint 1
   
 28 April 2021 - Sprint 2\
-05 May 2021   - Sprint 2\ 
+05 May 2021   - Sprint 2  
 06 May 2021 (1 Release, 23:59)
 
 12 May 2021   - Sprint 3\
