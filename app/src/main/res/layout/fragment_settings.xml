@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 style="@style/Description"
-                android:text="Select a language"></TextView>
+                android:text="@string/select_a_language"></TextView>
 
             <Spinner
                 android:id="@+id/spinner_languages"
@@ -46,7 +46,7 @@
             android:layout_height="50dp"
             android:paddingHorizontal="20dp"
             style="@style/Description"
-            android:text="Switch to miles" />
+            android:text="@string/switch_to_miles" />
 
         <Switch
             android:id="@+id/switch_dark_mode"
@@ -54,7 +54,7 @@
             android:layout_height="50dp"
             android:paddingHorizontal="20dp"
             style="@style/Description"
-            android:text="Switch to dark mode" />
+            android:text="@string/switch_to_dark_mode" />
 
     </LinearLayout>
 

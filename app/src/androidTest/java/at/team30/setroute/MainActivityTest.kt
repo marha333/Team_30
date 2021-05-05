@@ -6,6 +6,7 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.pressBack
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.platform.app.InstrumentationRegistry
 import at.team30.setroute.infrastructure.DependencyInjection
 import at.team30.setroute.infrastructure.IRoutesRepository
 import at.team30.setroute.models.Route
@@ -121,6 +122,23 @@ class MainActivityTest {
         for(route in FixturesAndroid.routes_many()) {
             onView(withText(route.name)).check(matches(isDisplayed()))
         }
+    }
+
+    @Test
+    fun starting_activity_navigating_to_setting_view() {
+
+        //Arrange
+        given_routes_in_repository(FixturesAndroid.routes_many())
+        val context = InstrumentationRegistry.getInstrumentation().getTargetContext();
+
+        //Act
+        ActivityScenario.launch(MainActivity::class.java)
+        onView(withId(R.id.settingsFragment)).perform(click())
+
+        //Assert
+        onView(withText(context.resources.getString(R.string.select_a_language))).check(matches((isDisplayed())))
+        onView(withText(context.resources.getString(R.string.switch_to_miles))).check(matches((isDisplayed())))
+        onView(withText(context.resources.getString(R.string.switch_to_dark_mode))).check(matches((isDisplayed())))
     }
 
     private fun given_routes_in_repository(routes: List<Route>) {
