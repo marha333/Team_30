@@ -1,20 +1,31 @@
 package at.team30.setroute.ui
 
 import android.Manifest
+import android.content.Context
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import at.team30.setroute.R
 import at.team30.setroute.application.AppPermissions
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.zeugmasolutions.localehelper.LocaleAwareCompatActivity
+import com.zeugmasolutions.localehelper.LocaleHelperActivityDelegate
+import com.zeugmasolutions.localehelper.LocaleHelperActivityDelegateImpl
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : LocaleAwareCompatActivity() {
     private lateinit var navController: NavController
+    private val localeDelegate: LocaleHelperActivityDelegate = LocaleHelperActivityDelegateImpl()
+
+    override fun getDelegate(): AppCompatDelegate = localeDelegate.getAppCompatDelegate(super.getDelegate())
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(localeDelegate.attachBaseContext(newBase))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

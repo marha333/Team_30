@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="routes">Маршруты</string>
+    <string name="setting">Настройки</string>
+    <string name="select_a_language">Выбрать язык</string>
+    <string name="switch_to_miles">Перейти на мили</string>
+    <string name="switch_to_dark_mode">Перейти в темный режим</string>
+    <string name="cancel">Отмена</string>
+    <string name="map">Карта</string>
+    <string name="unit_km">км</string>
+    <string name="unit_min">мин</string>
+</resources>

@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.navigation.Navigation.findNavController
 import at.team30.setroute.R
 import at.team30.setroute.models.Route
+import com.zeugmasolutions.localehelper.LocaleHelper
 
 class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdapter<Route>(context, 0, items) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -25,14 +26,13 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
         val durationView : TextView = currentItemView.findViewById(R.id.duration)
         val lengthView : TextView = currentItemView.findViewById(R.id.length)
 
-
-        nameView.text = currentRoute?.name ?: "-"
-        descriptionView.text = currentRoute?.description ?: "-"
-        durationView.text = currentRoute?.duration.toString() + " mins" ?: "-"
-        lengthView.text = currentRoute?.length.toString() + " km" ?: "-"
-
-
-
+        val locale = LocaleHelper.getLocale(context)
+        nameView.text = currentRoute?.getLocalizedName(locale.language) ?: "-"
+        descriptionView.text = currentRoute?.getLocalizedDescription(locale.language) ?: "-"
+        durationView.text =
+            "${currentRoute?.duration.toString()} ${parent.resources.getString(R.string.unit_min)}"
+        lengthView.text =
+            "${currentRoute?.length.toString()} ${parent.resources.getString(R.string.unit_km)}"
 
         return currentItemView
     }
