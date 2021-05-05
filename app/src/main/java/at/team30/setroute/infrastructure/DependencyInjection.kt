@@ -15,4 +15,10 @@ object DependencyInjection {
     fun provideRoutesRepository(): IRoutesRepository {
         return RoutesRepository()
     }
+
+    @Singleton
+    @Provides
+    fun provideImageRepository(): IImageRepository {
+        return ImageRepository(provideRoutesRepository())
+    }
 }
