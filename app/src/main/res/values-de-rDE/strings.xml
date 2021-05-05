@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="routes">Routen</string>
+    <string name="setting">Einstellungen</string>
+    <string name="select_a_language">Sprache auswählen</string>
+    <string name="switch_to_miles">Zu Meilen wechseln</string>
+    <string name="switch_to_dark_mode">Zu Dark Mode wechseln</string>
+    <string name="cancel">Abbrechen</string>
+</resources>
