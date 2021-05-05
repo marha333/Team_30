@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation.findNavController
 import at.team30.setroute.R
 import at.team30.setroute.models.Route
@@ -21,18 +23,38 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
             findNavController(parent).navigate(action)
         }
 
+        val locale = LocaleHelper.getLocale(context)
         val nameView : TextView = currentItemView.findViewById(R.id.name)
         val descriptionView : TextView = currentItemView.findViewById(R.id.description)
         val durationView : TextView = currentItemView.findViewById(R.id.duration)
         val lengthView : TextView = currentItemView.findViewById(R.id.length)
+        val iconView : ImageView = currentItemView.findViewById(R.id.image)
 
-        val locale = LocaleHelper.getLocale(context)
+        val sharedPreference =  context.getSharedPreferences("test_preferences", Context.MODE_PRIVATE)
+        val currentTheme = sharedPreference.getString("CurrentTheme","Light") as String
+
+
+        //nameView.text = currentRoute?.name ?: "-"
+
+        if (currentTheme == "Dark")
+            nameView.setTextColor(ContextCompat.getColor(context, R.color.white))
+        else
+            nameView.setTextColor(ContextCompat.getColor(context, R.color.black))
+
         nameView.text = currentRoute?.getLocalizedName(locale.language) ?: "-"
         descriptionView.text = currentRoute?.getLocalizedDescription(locale.language) ?: "-"
         durationView.text =
-            "${currentRoute?.duration.toString()} ${parent.resources.getString(R.string.unit_min)}"
+                "${currentRoute?.duration.toString()} ${parent.resources.getString(R.string.unit_min)}"
         lengthView.text =
-            "${currentRoute?.length.toString()} ${parent.resources.getString(R.string.unit_km)}"
+                "${currentRoute?.length.toString()} ${parent.resources.getString(R.string.unit_km)}"
+
+        if (currentTheme == "Dark")
+            iconView.setImageResource(R.drawable.ic_map_light)
+        else
+            iconView.setImageResource(R.drawable.ic_map)
+
+
+
 
         return currentItemView
     }

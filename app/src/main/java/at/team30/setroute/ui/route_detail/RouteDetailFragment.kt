@@ -15,7 +15,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.transition.Visibility
 import at.team30.setroute.R
-import at.team30.setroute.models.Language
 import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 

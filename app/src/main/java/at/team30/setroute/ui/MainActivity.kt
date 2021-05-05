@@ -28,6 +28,12 @@ class MainActivity : LocaleAwareCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val sharedPreference = getSharedPreferences("test_preferences", Context.MODE_PRIVATE)
+        if (sharedPreference.getString("CurrentTheme", "Light") == "Dark")
+            this.setTheme(R.style.Theme_SetRoute_Dark)
+        else
+            this.setTheme(R.style.Theme_SetRoute)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupViews()

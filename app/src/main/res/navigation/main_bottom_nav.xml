@@ -37,6 +37,6 @@
         <argument
             android:name="routeId"
             app:argType="integer"
-            android:defaultValue="1"/>
+            android:defaultValue="1" />
     </fragment>
 </navigation>

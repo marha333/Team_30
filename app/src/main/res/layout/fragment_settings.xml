@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?backgroundColor"
     tools:context=".ui.settings.SettingsFragment">
 
     <LinearLayout
@@ -37,7 +38,7 @@
 
         </RelativeLayout>
 
-        <androidx.appcompat.widget.SwitchCompat
+        <Switch
             android:id="@+id/switch_units"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -45,7 +46,7 @@
             style="@style/Description"
             android:text="@string/switch_to_miles" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <Switch
             android:id="@+id/switch_dark_mode"
             android:layout_width="match_parent"
             android:layout_height="50dp"
