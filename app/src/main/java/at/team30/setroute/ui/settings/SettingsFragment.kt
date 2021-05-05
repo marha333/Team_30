@@ -7,9 +7,17 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import at.team30.setroute.R
+import at.team30.setroute.models.Language
+import com.zeugmasolutions.localehelper.LocaleAwareCompatActivity
+import com.zeugmasolutions.localehelper.LocaleHelper
+import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
+@AndroidEntryPoint
 class SettingsFragment : Fragment() {
+    private val viewModel: SettingsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,13 +30,18 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val languageButton = view.findViewById<Button>(R.id.language_button)
         languageButton.setOnClickListener { languageDialog() }
+        updateSelectedLanguage()
     }
 
     private fun languageDialog() {
-        val languages = arrayOf("EN", "DE", "RU")
+        val currentIndex = viewModel.getIndexForLocale(Language.forCode(LocaleHelper.getLocale(requireContext()).language))
+
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle(getString(R.string.select_a_language))
-        builder.setSingleChoiceItems(languages, 0) { dialog, i ->
+        builder.setSingleChoiceItems(viewModel.getLanguages(), currentIndex) { dialog, i ->
+            val language = viewModel.getLanguages()[i].toLowerCase(Locale.ROOT)
+            (activity as LocaleAwareCompatActivity).updateLocale(Locale(language))
+            updateSelectedLanguage()
             dialog.dismiss()
         }
 
@@ -38,5 +51,8 @@ class SettingsFragment : Fragment() {
         builder.create().show()
     }
 
-
+    private fun updateSelectedLanguage() {
+        val languageButton = requireView().findViewById<Button>(R.id.language_button)
+        languageButton.text = Language.forCode(LocaleHelper.getLocale(requireContext()).language).code
+    }
 }
