@@ -24,6 +24,7 @@
 
         <activity
             android:name=".ui.MainActivity"
+            android:configChanges="layoutDirection|locale"
             android:theme="@style/Theme.SetRoute">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

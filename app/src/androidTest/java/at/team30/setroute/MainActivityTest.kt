@@ -1,19 +1,18 @@
 package at.team30.setroute
 
-import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.pressBack
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.platform.app.InstrumentationRegistry
 import at.team30.setroute.infrastructure.DependencyInjection
 import at.team30.setroute.infrastructure.IRoutesRepository
-import at.team30.setroute.models.Route
 import at.team30.setroute.ui.MainActivity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
-import io.mockk.every
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -26,8 +25,11 @@ class MainActivityTest {
     @get:Rule(order = 0)
     var hiltRule = HiltAndroidRule(this)
 
+    @get:Rule(order = 1)
+    val activityRule = ActivityScenarioRule(MainActivity::class.java)
+
     @Inject
-    lateinit var mockRepository: IRoutesRepository
+    lateinit var routesRepository: IRoutesRepository
 
     @Before
     fun init() {
@@ -35,29 +37,9 @@ class MainActivityTest {
     }
 
     @Test
-    fun given_one_route_in_repository_expect_one_route_displayed_in_list() {
-        // Arrange
-        given_routes_in_repository(FixturesAndroid.routes_one())
-
-        // Act
-        ActivityScenario.launch(MainActivity::class.java)
-
-        // Assert
-        for(route in FixturesAndroid.routes_one()) {
-            onView(withText(route.name)).check(matches(isDisplayed()))
-        }
-    }
-
-    @Test
     fun given_many_routes_in_repository_expect_all_routes_displayed_in_list() {
-        // Arrange
-        given_routes_in_repository(FixturesAndroid.routes_many())
-
-        // Act
-        ActivityScenario.launch(MainActivity::class.java)
-
         // Assert
-        for(route in FixturesAndroid.routes_many()) {
+        for(route in routesRepository.getRoutes()) {
             onView(withText(route.name)).check(matches(isDisplayed()))
         }
     }
@@ -65,11 +47,9 @@ class MainActivityTest {
     @Test
     fun given_many_routes_enter_detail_of_first_route() {
         // Arrange
-        given_routes_in_repository(FixturesAndroid.routes_many())
-        val selectedRoute = FixturesAndroid.routes_many()[0]
+        val selectedRoute = routesRepository.getRoutes()[0]
 
         // Act
-        ActivityScenario.launch(MainActivity::class.java)
         onView(withText(selectedRoute.name)).perform(click())
 
         // Assert
@@ -80,11 +60,9 @@ class MainActivityTest {
     @Test
     fun given_many_routes_enter_detail_press_back_displays_list_view() {
         // Arrange
-        given_routes_in_repository(FixturesAndroid.routes_many())
-        val selectedRoute = FixturesAndroid.routes_many()[0]
+        val selectedRoute = routesRepository.getRoutes()[0]
 
         // Act
-        ActivityScenario.launch(MainActivity::class.java)
         onView(withText(selectedRoute.name)).perform(click())
 
         // Assert
@@ -95,7 +73,7 @@ class MainActivityTest {
         onView(isRoot()).perform(pressBack())
 
         // Assert
-        for(route in FixturesAndroid.routes_many()) {
+        for(route in routesRepository.getRoutes()) {
             onView(withText(route.name)).check(matches(isDisplayed()))
         }
     }
@@ -103,11 +81,9 @@ class MainActivityTest {
     @Test
     fun given_many_routes_enter_detail_press_routes_button_displays_list_view() {
         // Arrange
-        given_routes_in_repository(FixturesAndroid.routes_many())
-        val selectedRoute = FixturesAndroid.routes_many()[0]
+        val selectedRoute = routesRepository.getRoutes()[0]
 
         // Act
-        ActivityScenario.launch(MainActivity::class.java)
         onView(withText(selectedRoute.name)).perform(click())
 
         // Assert
@@ -118,15 +94,22 @@ class MainActivityTest {
         onView(withId(R.id.routesFragment)).perform(click())
 
         // Assert
-        for(route in FixturesAndroid.routes_many()) {
+        for(route in routesRepository.getRoutes()) {
             onView(withText(route.name)).check(matches(isDisplayed()))
         }
     }
 
-    private fun given_routes_in_repository(routes: List<Route>) {
-        every { mockRepository.getRoutes() } returns routes
-        for (route in routes) {
-            every { mockRepository.getRoutesById(route.id) } returns route
-        }
+    @Test
+    fun starting_activity_navigating_to_setting_view() {
+        //Arrange
+        val context = InstrumentationRegistry.getInstrumentation().targetContext;
+
+        //Act
+        onView(withId(R.id.settingsFragment)).perform(click())
+
+        //Assert
+        onView(withText(context.resources.getString(R.string.select_a_language))).check(matches((isDisplayed())))
+        onView(withText(context.resources.getString(R.string.switch_to_miles))).check(matches((isDisplayed())))
+        onView(withText(context.resources.getString(R.string.switch_to_dark_mode))).check(matches((isDisplayed())))
     }
 }
