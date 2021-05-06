@@ -20,14 +20,15 @@ Among its main features, we should implement:
 21 April 2021 - Sprint 1
   
 28 April 2021 - Sprint 2\
-05 May 2021   - Sprint 2 (1 Release, 23:59)
+05 May 2021   - Sprint 2  
+06 May 2021 (1 Release, 23:59)
 
 12 May 2021   - Sprint 3\
 19 May 2021   - Sprint 3
 
 26 May 2021   - Sprint 4\
-02 May 2021   - Sprint 4\
-09 May 2021   - Sprint 4 (2 Release, 23:59)
+02 June 2021   - Sprint 4\
+09 June 2021   - Sprint 4 (2 Release, 23:59)
   
 Link to Discord: https://discord.com/invite/sW262YSJkr  
 
@@ -69,3 +70,12 @@ Link to Discord: https://discord.com/invite/sW262YSJkr
 | SR-020      |          Generating Demo Data         |
 | SR-022      |           City Map button             |
 | SR-024      |      Location usage allowed (Map)     |
+| SR-013      |      Static map view of the route     |
+| SR-013-A    |           Static image repo           |
+| SR-011      |      “More” button (App Settings)     |
+| SR-016      |         App Settings overview         |
+| SR-025      |            Create an Icon             |
+| SR-026      |  Create Design Templates for the App  |
+| SR-027      |         Improve Test Framework        |
+| SR-018      | App Settings functionalities: Language (DE/EN/RUS) |
+| SR-019      | App Settings functionalities: Dark mode (on/off) |
