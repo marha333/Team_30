@@ -1,11 +1,14 @@
 package at.team30.setroute.ui.route_detail
 
+import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isVisible
@@ -14,6 +17,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.transition.Visibility
+import at.team30.setroute.Helper.NavigationHelper
 import at.team30.setroute.R
 import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
@@ -51,6 +55,20 @@ class RouteDetailFragment : Fragment() {
             "${route?.length?.toString() ?: "-"} ${getString(R.string.unit_km)} / ${route?.duration?.toString() ?: "-"} ${getString(R.string.unit_min)}"
         val description = view.findViewById<TextView>(R.id.description)
         description.text = route?.getLocalizedDescription(locale.language)
+
+        val navButton = view.findViewById<Button>(R.id.navigation_start_button)
+        navButton.setOnClickListener {
+            val link = route?.let { it1 -> NavigationHelper.getNavLink(it1) }
+
+            val gmmIntentUri = Uri.parse(link)
+
+
+            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+
+            mapIntent.setPackage("com.google.android.apps.maps")
+
+            startActivity(mapIntent)
+        }
 
 
         val imageObserver = Observer<Bitmap?> { image ->

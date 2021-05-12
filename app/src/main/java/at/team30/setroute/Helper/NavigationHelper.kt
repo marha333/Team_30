@@ -36,7 +36,7 @@ class NavigationHelper {
 
 
 
-                link = "$link$originString&$destinationString&$travelMode&$waypointString"
+                link = "$link$originString&$destinationString&$travelMode&dir_action=navigate&$waypointString"
             }
 
             return link
