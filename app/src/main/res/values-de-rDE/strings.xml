@@ -11,4 +11,8 @@
     <string name="unit_min">min</string>
     <string name="sort">Sortieren</string>
     <string name="filter" >Filtern</string>
+    <string name="sort_order">Sortierung:</string>
+    <string name="sort_by_title_asc">Title (ascending)</string>
+    <string name="sort_by_distance_asc">Distance (ascending)</string>
+    <string name="sort_by_distance_dsc">Title (descending)</string>
 </resources>
