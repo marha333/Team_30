@@ -1,12 +1,14 @@
 package at.team30.setroute
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.pressBack
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import at.team30.setroute.infrastructure.DependencyInjection
 import at.team30.setroute.infrastructure.IRoutesRepository
 import at.team30.setroute.ui.MainActivity
@@ -111,5 +113,18 @@ class MainActivityTest {
         onView(withText(context.resources.getString(R.string.select_a_language))).check(matches((isDisplayed())))
         onView(withText(context.resources.getString(R.string.switch_to_miles))).check(matches((isDisplayed())))
         onView(withText(context.resources.getString(R.string.switch_to_dark_mode))).check(matches((isDisplayed())))
+    }
+
+    @Test
+    fun option_menu_opens() {
+        //Arrange
+        val context = InstrumentationRegistry.getInstrumentation().targetContext;
+
+        //Act
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
+
+        //Assert
+        onView(withText(context.resources.getString(R.string.sort))).check(matches((isDisplayed())))
+        onView(withText(context.resources.getString(R.string.filter))).check(matches((isDisplayed())))
     }
 }
