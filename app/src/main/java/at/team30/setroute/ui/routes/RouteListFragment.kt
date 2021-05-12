@@ -1,9 +1,7 @@
 package at.team30.setroute.ui.routes
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -23,7 +21,11 @@ class RouteListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_route_list, container, false)
+
+        var view = inflater.inflate(R.layout.fragment_route_list, container, false)
+        setHasOptionsMenu(true)
+
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,5 +39,11 @@ class RouteListFragment : Fragment() {
             );
             listView.adapter = adapter;
         });
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.list_options, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 }

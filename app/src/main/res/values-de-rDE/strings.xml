@@ -9,4 +9,6 @@
     <string name="map">Karte</string>
     <string name="unit_km">km</string>
     <string name="unit_min">min</string>
+    <string name="sort">Sortieren</string>
+    <string name="filter" >Filtern</string>
 </resources>
