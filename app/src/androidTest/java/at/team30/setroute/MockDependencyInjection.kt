@@ -1,9 +1,6 @@
 package at.team30.setroute
 
-import at.team30.setroute.infrastructure.DependencyInjection
-import at.team30.setroute.infrastructure.IImageRepository
-import at.team30.setroute.infrastructure.IRoutesRepository
-import at.team30.setroute.infrastructure.ImageRepository
+import at.team30.setroute.infrastructure.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent
@@ -34,5 +31,11 @@ class MockDependencyInjection {
     @Provides
     fun provideImageRepository(): IImageRepository {
         return ImageRepository(provideFakeRoutesRepository())
+    }
+
+    @Singleton
+    @Provides
+    fun provideSettingRepository(): ISettingRepository {
+        return SettingRepository()
     }
 }
