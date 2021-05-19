@@ -2,12 +2,18 @@ package at.team30.setroute
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import at.team30.setroute.infrastructure.IRoutesRepository
+import at.team30.setroute.infrastructure.ISettingRepository
+import at.team30.setroute.infrastructure.SettingRepository
+import at.team30.setroute.models.Field
+import at.team30.setroute.models.Order
 import at.team30.setroute.models.Route
+import at.team30.setroute.models.SortingOptions
 import at.team30.setroute.ui.routes.RouteListViewModel
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,6 +26,12 @@ class RoutesListViewModelTest {
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     private val mockRepository: IRoutesRepository = mockk()
+    private val settingRepository : ISettingRepository = SettingRepository()
+
+    @Before
+    fun init() {
+        settingRepository.storeSortingOptions(SortingOptions(Order.ASCENDING, Field.TITLE))
+    }
 
     @Test
     fun routes_get_provides_all_routes() {
@@ -38,7 +50,7 @@ class RoutesListViewModelTest {
     }
 
     private fun given_viewModel(): RouteListViewModel {
-        return RouteListViewModel(mockRepository)
+        return RouteListViewModel(mockRepository, settingRepository)
     }
 
     private fun given_routes_in_repository(routes: List<Route>) {

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Switch
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat.recreate
 import androidx.fragment.app.Fragment
@@ -78,7 +79,9 @@ class SettingsFragment : Fragment() {
         val currentIndex = viewModel.getIndexForLocale(Language.forCode(LocaleHelper.getLocale(requireContext()).language))
 
         val builder = AlertDialog.Builder(ContextThemeWrapper(requireContext(), R.style.AlertDialogCustom))
-        builder.setTitle(getString(R.string.select_a_language))
+        val titleView: View = this.layoutInflater.inflate(R.layout.alert_title, null)
+        titleView.findViewById<TextView>(R.id.title_text).text = resources.getString(R.string.select_a_language)
+        builder.setCustomTitle(titleView)
         builder.setSingleChoiceItems(viewModel.getLanguages(), currentIndex) { dialog, i ->
             val language = viewModel.getLanguages()[i].toLowerCase(Locale.ROOT)
             (activity as LocaleAwareCompatActivity).updateLocale(Locale(language))
