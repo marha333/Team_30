@@ -20,6 +20,10 @@ data class Route(
         PARK_LOVERS(1),
         SIGHTSEEING_ADDICTED(2),
         COFFEE_LOVERS(3),
+        DOG_WALK(4),
+        ALCOHOLICS(5),
+        ROMANTIC_WALK(6),
+        SPORT_FREAKS(7)
     }
 
     fun getLocalizedName(code: String): String {

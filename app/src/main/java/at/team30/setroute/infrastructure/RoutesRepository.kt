@@ -22,6 +22,22 @@ class RoutesRepository : IRoutesRepository {
     val description_sightseeing_de : String = "Längerer Spaziergang durch die schönsten Denkmäler von Grazes."
     val description_sightseeing_ru : String = "Более длительная прогулка по красивейшим памятникам Граца."
 
+    val description_dog_walk : String = "A dog walk through Graz."
+    val description_dog_walk_de : String = "Ein Spaziergang mit dem Hund durch Graz."
+    val description_dog_walk_ru : String = "Прогулка по Грацу с собакой."
+
+    val description_alcoholics : String = "An alcohol tour through best pubs i Graz."
+    val description_alcoholics_de : String = "Ein Spaziergang für Alkohol-Enthusiasten."
+    val description_alcoholics_ru : String = "Избранные пивнушки Граца."
+
+    val description_romantic_walk : String = "Romantic walk through Graz."
+    val description_romantic_walk_de : String = "Ein romantischer Spaziergang."
+    val description_romantic_walk_ru : String = "Романтическая прогулка по городу."
+
+    val description_sport_freaks : String = "Intensive training."
+    val description_sport_freaks_de : String = "Ein intensives Training."
+    val description_sport_freaks_ru : String = "Интенсивный тренинг."
+
     private val routes : List<Route> = listOf(
         Route(1,
             "Coffee", "Kaffee", "Кофе",
@@ -47,7 +63,20 @@ class RoutesRepository : IRoutesRepository {
             description_sightseeing, description_sightseeing_de, description_sightseeing_ru),
         Route(7, "Sights3", "Sehenswürdigkeiten", "Достопримечательности",
             Route.RouteType.SIGHTSEEING_ADDICTED, 40, 15.2,
-            description_sightseeing, description_sightseeing_de, description_sightseeing_ru))
+            description_sightseeing, description_sightseeing_de, description_sightseeing_ru),
+        Route(8, "Dog walk", "Hunde-Runde", "Прогулка с собакой",
+            Route.RouteType.DOG_WALK, 30, 2.0,
+            description_dog_walk, description_dog_walk_de, description_dog_walk_ru),
+        Route(9, "Alcoholics", "Beisl-Tour", "Алкотур",
+            Route.RouteType.ALCOHOLICS, 60, 3.0,
+            description_alcoholics, description_alcoholics_de, description_alcoholics_ru),
+        Route(10, "Romantic walk", "Romantischer Spaziergang", "Романтическая прогулка",
+            Route.RouteType.ROMANTIC_WALK, 35, 1.5,
+            description_romantic_walk, description_romantic_walk_de, description_romantic_walk_ru),
+        Route(11, "Sport freaks", "Sport Freak", "Спортсмен",
+            Route.RouteType.SPORT_FREAKS, 42, 1.5,
+            description_sport_freaks, description_sport_freaks_de, description_sport_freaks_ru)
+    )
 
     override fun getRoutes(): List<Route> {
         return routes
