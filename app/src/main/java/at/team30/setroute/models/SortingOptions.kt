@@ -38,7 +38,7 @@ enum class Field {
             return when (field) {
                 "title" -> TITLE
                 "duration" -> DURATION
-                "length" -> DISTANCE
+                "distance" -> DISTANCE
                 else -> TITLE
             }
         }
