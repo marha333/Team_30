@@ -5,6 +5,7 @@ import android.view.*
 import android.widget.ListView
 import android.widget.RadioGroup
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -84,6 +85,9 @@ class RouteListFragment : Fragment() {
             )
         )
 
+        val titleView: View = this.layoutInflater.inflate(R.layout.alert_title, null)
+        titleView.findViewById<TextView>(R.id.title_text).text = resources.getString(R.string.sort_order)
+
         val dialogView: View = this.layoutInflater.inflate(R.layout.sort_dialog, null)
         val orderRadioGroup = dialogView.findViewById<RadioGroup>(R.id.sort_order_group)
         val fieldSpinner = dialogView.findViewById<Spinner>(R.id.sort_field)
@@ -99,7 +103,7 @@ class RouteListFragment : Fragment() {
             Field.DISTANCE -> 2
         })
 
-        builder.setTitle(getString(R.string.sort_order))
+        builder.setCustomTitle(titleView)
 
         builder.setView(dialogView)
         builder.setPositiveButton(getString(R.string.apply)) { dialog, _ ->
