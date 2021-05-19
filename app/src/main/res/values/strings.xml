@@ -33,4 +33,5 @@
         <item>duration</item>
         <item>distance</item>
     </string-array>
+    <string name="unit_miles">miles</string>
 </resources>

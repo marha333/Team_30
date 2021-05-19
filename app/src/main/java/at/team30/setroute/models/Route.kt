@@ -37,4 +37,11 @@ data class Route(
             Language.RUSSIAN -> this.description_ru
         }
     }
+
+    fun getLength(miles_enabled: Boolean): Double {
+        if(miles_enabled){
+            return length / 1.609
+        }
+        return length
+    }
 }

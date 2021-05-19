@@ -21,6 +21,7 @@ class RouteListViewModel @Inject constructor(
 
     init {
         val result = routesRepository.getRoutes()
+        result
         routesList.value = result
     }
 

@@ -12,13 +12,15 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="200dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
             <ImageView
                 android:id="@+id/header"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_sample_layer"
-                android:background="@color/ic_sample_background_background"
+                style="@style/Description"
                 tools:ignore="ContentDescription"
                 android:visibility="visible"/>
             <ImageView
@@ -26,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_baseline_signal_cellular_connected_no_internet_4_bar_24"
-                android:background="@color/ic_launcher_background"
+                style="@style/Description"
                 tools:ignore="ContentDescription"
                 android:visibility="invisible"/>
             <ImageView
@@ -36,6 +38,19 @@
                 android:scaleType="centerCrop"
                 tools:ignore="ContentDescription"
                 android:visibility="invisible"/>
+                <Button
+                    android:id="@+id/navigation_start_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:spinnerMode="dialog"
+                    android:gravity="bottom"
+                    style="@style/Description"
+                    android:text="Start"/>
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -50,12 +65,12 @@
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/Title"/>
+                    style="@style/detailedInfoName"/>
                 <TextView
                     android:id="@+id/information"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/Information"/>
+                    style="@style/detailedInfoDistance"/>
             </LinearLayout>
         </RelativeLayout>
 
