@@ -127,4 +127,30 @@ class MainActivityTest {
         onView(withText(context.resources.getString(R.string.sort))).check(matches((isDisplayed())))
         onView(withText(context.resources.getString(R.string.filter))).check(matches((isDisplayed())))
     }
+
+    @Test
+    fun sort_dialog_is_shown() {
+        //Arrange
+        val context = InstrumentationRegistry.getInstrumentation().targetContext;
+
+        //Act
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
+        onView(withText(context.resources.getString(R.string.sort))).perform(click())
+
+        //Assert
+        onView(withText(context.resources.getString(R.string.sort_order))).check(matches((isDisplayed())))
+    }
+
+    @Test
+    fun filter_dialog_is_shown() {
+        //Arrange
+        val context = InstrumentationRegistry.getInstrumentation().targetContext;
+
+        //Act
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
+        onView(withText(context.resources.getString(R.string.filter))).perform(click())
+
+        //Assert
+        onView(withText(context.resources.getString(R.string.filter_options))).check(matches((isDisplayed())))
+    }
 }

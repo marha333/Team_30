@@ -57,6 +57,10 @@ class RouteListFragment : Fragment() {
                 sortingDialog()
                 return true
             }
+            R.id.filter -> {
+                filteringDialog()
+                return true
+            }
             else -> {
                 super.onOptionsItemSelected(item)
             }
@@ -76,10 +80,38 @@ class RouteListFragment : Fragment() {
         builder.setTitle(getString(R.string.sort_order))
 
 
-        val dialogView: View = this.layoutInflater.inflate(R.layout.sort_dialog, null)
+        //val dialogView: View = this.layoutInflater.inflate(R.layout.sort_dialog, null)
 
-        builder.setView(dialogView)
+        //builder.setView(dialogView)
+        builder.setPositiveButton(getString(R.string.apply)) { dialog, _ ->
+            dialog.dismiss()
+        }
 
+        builder.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        builder.create().show()
+    }
+
+    private fun filteringDialog() {
+
+
+        val builder = AlertDialog.Builder(
+            ContextThemeWrapper(
+                requireContext(),
+                R.style.AlertDialogCustom
+            )
+        )
+        builder.setTitle(getString(R.string.filter_options))
+
+
+        //val dialogView: View = this.layoutInflater.inflate(R.layout.sort_dialog, null)
+
+        //builder.setView(dialogView)
+        builder.setPositiveButton(getString(R.string.apply)) { dialog, _ ->
+            dialog.dismiss()
+        }
 
         builder.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
             dialog.dismiss()

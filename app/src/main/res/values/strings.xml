@@ -18,4 +18,6 @@
     <string name="sort_by_distance_dsc">Title (descending)</string>
     <string name="sort_by_duration_asc">Duration (ascending)</string>
     <string name="sort_by_duration_dsc">Duration (descending)</string>
+    <string name="apply">Apply</string>
+    <string name="filter_options">Filter options:</string>
 </resources>

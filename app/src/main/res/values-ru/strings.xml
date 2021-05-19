@@ -15,4 +15,9 @@
     <string name="sort_by_title_asc">Title (ascending)</string>
     <string name="sort_by_distance_asc">Distance (ascending)</string>
     <string name="sort_by_distance_dsc">Title (descending)</string>
+    <string name="apply">Применить</string>
+    <string name="filter_options">Варианты фильтров:</string>
+    <string name="sort_by_tile_dsc">Title (descending)</string>
+    <string name="sort_by_duration_asc">Duration (ascending)</string>
+    <string name="sort_by_duration_dsc">Duration (descending)</string>
 </resources>
