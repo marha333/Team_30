@@ -12,13 +12,7 @@
     <string name="sort">Sortieren</string>
     <string name="filter" >Filtern</string>
     <string name="sort_order">Sortierung:</string>
-    <string name="sort_by_title_asc">Title (ascending)</string>
-    <string name="sort_by_distance_asc">Distance (ascending)</string>
-    <string name="sort_by_distance_dsc">Title (descending)</string>
     <string name="apply">Anwenden</string>
-    <string name="sort_by_tile_dsc">Title (descending)</string>
-    <string name="sort_by_duration_asc">Duration (ascending)</string>
-    <string name="sort_by_duration_dsc">Duration (descending)</string>
     <string name="filter_options">Filteroptionen:</string>
     <string name="ascending">Aufsteigend</string>
     <string name="descending">Absteigend</string>
