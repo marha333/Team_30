@@ -9,6 +9,7 @@
     <string name="map">Карта</string>
     <string name="unit_km">км</string>
     <string name="unit_min">мин</string>
+    <string name="unit_miles">мили</string>
     <string name="sort">Сортировка</string>
     <string name="filter" >Отфильтровать</string>
     <string name="sort_order">Отсортировать:</string>

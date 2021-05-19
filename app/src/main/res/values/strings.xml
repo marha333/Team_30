@@ -20,4 +20,5 @@
     <string name="sort_by_duration_dsc">Duration (descending)</string>
     <string name="apply">Apply</string>
     <string name="filter_options">Filter options:</string>
+    <string name="unit_miles">miles</string>
 </resources>

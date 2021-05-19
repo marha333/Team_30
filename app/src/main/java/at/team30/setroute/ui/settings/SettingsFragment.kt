@@ -43,6 +43,7 @@ class SettingsFragment : Fragment() {
         if (sharedPreference != null)
             DMSwitch.isChecked = sharedPreference.getBoolean("DMSwitchState", false)
 
+
         val darkModeSwitch = view.findViewById(R.id.switch_dark_mode) as Switch
         darkModeSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             var editor = sharedPreference?.edit()
@@ -59,6 +60,17 @@ class SettingsFragment : Fragment() {
                 editor?.commit()
                 recreate(requireActivity() as Activity)
             }
+        }
+
+        val distanceUnitSwitch = view.findViewById(R.id.switch_units) as Switch
+        if (sharedPreference != null)
+            distanceUnitSwitch.isChecked = sharedPreference.getBoolean("MilesEnabled", false)
+        distanceUnitSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            var editor = sharedPreference?.edit()
+
+            editor?.putBoolean("MilesEnabled", isChecked)
+
+            editor?.commit()
         }
     }
 
@@ -85,3 +97,4 @@ class SettingsFragment : Fragment() {
         languageButton.text = Language.forCode(LocaleHelper.getLocale(requireContext()).language).code
     }
 }
+

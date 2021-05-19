@@ -20,4 +20,5 @@
     <string name="sort_by_duration_asc">Duration (ascending)</string>
     <string name="sort_by_duration_dsc">Duration (descending)</string>
     <string name="filter_options">Filteroptionen:</string>
+    <string name="unit_miles">meilen</string>
 </resources>
