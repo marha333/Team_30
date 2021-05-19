@@ -15,11 +15,22 @@
     <string name="sort_by_title_asc">Title (ascending)</string>
     <string name="sort_by_distance_asc">Distance (ascending)</string>
     <string name="sort_by_distance_dsc">Title (descending)</string>
-    <string name="apply">Apply</string>
+    <string name="apply">Anwenden</string>
     <string name="sort_by_tile_dsc">Title (descending)</string>
     <string name="sort_by_duration_asc">Duration (ascending)</string>
     <string name="sort_by_duration_dsc">Duration (descending)</string>
     <string name="filter_options">Filteroptionen:</string>
-    <string name="ascending">Ascending</string>
-    <string name="descending">Descending</string>
+    <string name="ascending">Aufsteigend</string>
+    <string name="descending">Absteigend</string>
+    <!-- Sorting options fields + identifier for mapping -->
+    <string-array name="sort_options">
+        <item>Name</item>
+        <item>Dauer</item>
+        <item>Distanz</item>
+    </string-array>
+    <string-array name="sort_options_identifier" translatable="false">
+        <item>title</item>
+        <item>duration</item>
+        <item>distance</item>
+    </string-array>
 </resources>

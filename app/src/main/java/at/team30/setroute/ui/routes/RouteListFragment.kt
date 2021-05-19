@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import at.team30.setroute.R
 import at.team30.setroute.models.Field
 import at.team30.setroute.models.Order
+import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -28,6 +29,7 @@ class RouteListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        viewModel.language = LocaleHelper.getLocale(requireContext()).language
         var view = inflater.inflate(R.layout.fragment_route_list, container, false)
         setHasOptionsMenu(true)
 
