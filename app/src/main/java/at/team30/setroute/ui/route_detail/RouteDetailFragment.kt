@@ -1,5 +1,6 @@
 package at.team30.setroute.ui.route_detail
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -51,8 +52,24 @@ class RouteDetailFragment : Fragment() {
         val name = view.findViewById<TextView>(R.id.title)
         name.text = route?.getLocalizedName(locale.language)
         val information = view.findViewById<TextView>(R.id.information)
+
+        // shared Preference
+        val sharedPreference = activity?.getSharedPreferences("test_preferences", Context.MODE_PRIVATE)
+
+        var milesEnabled = sharedPreference?.getBoolean("MilesEnabled", false) ?: false
+
+        var distanceUnit = ""
+        if(milesEnabled) {
+            distanceUnit = getString(R.string.unit_miles)
+        }
+        else {
+            distanceUnit = getString(R.string.unit_km)
+        }
+
+
+        val length = route?.getLength(milesEnabled)
         information.text =
-            "${route?.length?.toString() ?: "-"} ${getString(R.string.unit_km)} / ${route?.duration?.toString() ?: "-"} ${getString(R.string.unit_min)}"
+            "${String.format("%.2f", length) ?: "-"} ${distanceUnit} / ${route?.duration?.toString() ?: "-"} ${getString(R.string.unit_min)}"
         val description = view.findViewById<TextView>(R.id.description)
         description.text = route?.getLocalizedDescription(locale.language)
 

@@ -1,5 +1,7 @@
 package at.team30.setroute.infrastructure
 
+import android.widget.Switch
+import at.team30.setroute.R
 import at.team30.setroute.models.Route
 import com.google.android.gms.maps.model.LatLng
 
@@ -48,6 +50,8 @@ class RoutesRepository : IRoutesRepository {
         Route(7, "Sights3", "Sehenswürdigkeiten", "Достопримечательности",
             Route.RouteType.SIGHTSEEING_ADDICTED, 40, 15.2,
             description_sightseeing, description_sightseeing_de, description_sightseeing_ru))
+
+
 
     override fun getRoutes(): List<Route> {
         return routes

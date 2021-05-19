@@ -13,6 +13,8 @@ import at.team30.setroute.R
 import at.team30.setroute.models.Route
 import com.zeugmasolutions.localehelper.LocaleHelper
 
+
+
 class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdapter<Route>(context, 0, items) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val currentItemView = convertView ?: LayoutInflater.from(context).inflate(R.layout.route_item, parent, false)
@@ -43,10 +45,29 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
 
         nameView.text = currentRoute?.getLocalizedName(locale.language) ?: "-"
         descriptionView.text = currentRoute?.getLocalizedDescription(locale.language) ?: "-"
+
+
+
+        // shared Preference
+
+        var milesEnabled = sharedPreference?.getBoolean("MilesEnabled", false) ?: false
+        var distanceUnit = ""
+        if(milesEnabled) {
+            distanceUnit = context.getString(R.string.unit_miles)
+        }
+        else {
+            distanceUnit = context.getString(R.string.unit_km)
+        }
+
+
+        val length = String.format("%.2f", currentRoute?.getLength(milesEnabled)).toString()
+
+
+
         durationView.text =
                 "${currentRoute?.duration.toString()} ${parent.resources.getString(R.string.unit_min)}"
         lengthView.text =
-                "${currentRoute?.length.toString()} ${parent.resources.getString(R.string.unit_km)}"
+                "${length} ${distanceUnit}"
 
         if (currentTheme == "Dark")
             iconView.setImageResource(R.drawable.ic_map_light)
