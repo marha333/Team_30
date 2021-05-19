@@ -21,4 +21,10 @@ object DependencyInjection {
     fun provideImageRepository(): IImageRepository {
         return ImageRepository(provideRoutesRepository())
     }
+
+    @Singleton
+    @Provides
+    fun provideSettingRepository(): ISettingRepository {
+        return SettingRepository()
+    }
 }
