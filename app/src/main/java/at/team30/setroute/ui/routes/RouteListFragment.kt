@@ -80,9 +80,9 @@ class RouteListFragment : Fragment() {
         builder.setTitle(getString(R.string.sort_order))
 
 
-        //val dialogView: View = this.layoutInflater.inflate(R.layout.sort_dialog, null)
+        val dialogView: View = this.layoutInflater.inflate(R.layout.sort_dialog, null)
 
-        //builder.setView(dialogView)
+        builder.setView(dialogView)
         builder.setPositiveButton(getString(R.string.apply)) { dialog, _ ->
             dialog.dismiss()
         }

@@ -20,4 +20,6 @@
     <string name="sort_by_tile_dsc">Title (descending)</string>
     <string name="sort_by_duration_asc">Duration (ascending)</string>
     <string name="sort_by_duration_dsc">Duration (descending)</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
 </resources>
