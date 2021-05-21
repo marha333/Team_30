@@ -4,11 +4,14 @@ import android.Manifest
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import at.team30.setroute.R
 import at.team30.setroute.application.AppPermissions
+import at.team30.setroute.ui.settings.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zeugmasolutions.localehelper.LocaleAwareCompatActivity
 import com.zeugmasolutions.localehelper.LocaleHelperActivityDelegate
@@ -28,11 +31,9 @@ class MainActivity : LocaleAwareCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val sharedPreference = getSharedPreferences("test_preferences", Context.MODE_PRIVATE)
-        if (sharedPreference.getString("CurrentTheme", "Light") == "Dark")
-            this.setTheme(R.style.Theme_SetRoute_Dark)
-        else
-            this.setTheme(R.style.Theme_SetRoute)
+        val sharedPreference = getSharedPreferences(SettingsFragment.SHARED_PREF_KEY, Context.MODE_PRIVATE)
+        val nightModeEnabled = sharedPreference.getBoolean(SettingsFragment.DM_PREF_KEY, false)
+        AppCompatDelegate.setDefaultNightMode(if (nightModeEnabled) MODE_NIGHT_YES else MODE_NIGHT_NO)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

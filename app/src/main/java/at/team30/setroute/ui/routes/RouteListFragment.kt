@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import at.team30.setroute.R
 import at.team30.setroute.models.Field
 import at.team30.setroute.models.Order
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -31,9 +32,8 @@ class RouteListFragment : Fragment() {
     ): View? {
 
         viewModel.language = LocaleHelper.getLocale(requireContext()).language
-        var view = inflater.inflate(R.layout.fragment_route_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_route_list, container, false)
         setHasOptionsMenu(true)
-
         return view
     }
 
@@ -43,7 +43,7 @@ class RouteListFragment : Fragment() {
         val listView: ListView = view.findViewById(R.id.list) as ListView
         viewModel.getRoutes().observe(viewLifecycleOwner, { routeList ->
             val adapter = RouteAdapter(
-                requireActivity().applicationContext,
+                requireActivity(),
                 routeList
             );
             listView.adapter = adapter;
@@ -54,11 +54,9 @@ class RouteListFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.list_options, menu)
         super.onCreateOptionsMenu(menu, inflater)
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         return when(item.itemId) {
             R.id.sort -> {
                 sortingDialog()
@@ -71,22 +69,11 @@ class RouteListFragment : Fragment() {
             else -> {
                 super.onOptionsItemSelected(item)
             }
-
         }
     }
 
     private fun sortingDialog() {
 
-
-        val builder = AlertDialog.Builder(
-            ContextThemeWrapper(
-                requireContext(),
-                R.style.AlertDialogCustom
-            )
-        )
-
-        val titleView: View = this.layoutInflater.inflate(R.layout.alert_title, null)
-        titleView.findViewById<TextView>(R.id.title_text).text = resources.getString(R.string.sort_order)
 
         val dialogView: View = this.layoutInflater.inflate(R.layout.sort_dialog, null)
         val orderRadioGroup = dialogView.findViewById<RadioGroup>(R.id.sort_order_group)
@@ -103,46 +90,30 @@ class RouteListFragment : Fragment() {
             Field.DISTANCE -> 2
         })
 
-        builder.setCustomTitle(titleView)
-
-        builder.setView(dialogView)
-        builder.setPositiveButton(getString(R.string.apply)) { dialog, _ ->
-            dialog.dismiss()
-            viewModel.applySorting(
-                orderRadioGroup.checkedRadioButtonId,
-                resources.getStringArray(R.array.sort_options_identifier)[fieldSpinner.selectedItemPosition])
-        }
-
-        builder.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
-            dialog.dismiss()
-        }
-
-        builder.create().show()
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.sort_order)
+            .setView(dialogView)
+            .setPositiveButton(getString(R.string.apply)) { dialog, _ ->
+                dialog.dismiss()
+                viewModel.applySorting(
+                    orderRadioGroup.checkedRadioButtonId,
+                    resources.getStringArray(R.array.sort_options_identifier)[fieldSpinner.selectedItemPosition])
+            }
+            .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create().show()
     }
 
     private fun filteringDialog() {
-
-
-        val builder = AlertDialog.Builder(
-            ContextThemeWrapper(
-                requireContext(),
-                R.style.AlertDialogCustom
-            )
-        )
-        builder.setTitle(getString(R.string.filter_options))
-
-
-        //val dialogView: View = this.layoutInflater.inflate(R.layout.sort_dialog, null)
-
-        //builder.setView(dialogView)
-        builder.setPositiveButton(getString(R.string.apply)) { dialog, _ ->
-            dialog.dismiss()
-        }
-
-        builder.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
-            dialog.dismiss()
-        }
-
-        builder.create().show()
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(getString(R.string.filter_options))
+            .setPositiveButton(getString(R.string.apply)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create().show()
     }
 }
