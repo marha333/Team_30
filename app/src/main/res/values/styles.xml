@@ -18,7 +18,11 @@
     </style>
     <style name="ListInfo" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/infoColor</item>
-        <item name="android:textSize">8pt</item>
+        <item name="android:textSize">6pt</item>
+    </style>
+    <style name="ListDescription" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/infoColor</item>
+        <item name="android:textSize">6pt</item>
     </style>
     <style name="AlertDialogCustom" parent="@android:style/Theme.Dialog">
         <item name="android:textColor">?android:textColorPrimary</item>
