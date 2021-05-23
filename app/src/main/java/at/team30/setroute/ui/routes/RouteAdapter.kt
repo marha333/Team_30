@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation.findNavController
 import at.team30.setroute.R
 import at.team30.setroute.models.Route
+import at.team30.setroute.ui.settings.SettingsFragment
 import com.zeugmasolutions.localehelper.LocaleHelper
-
-
 
 class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdapter<Route>(context, 0, items) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -30,52 +28,18 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
         val descriptionView : TextView = currentItemView.findViewById(R.id.description)
         val durationView : TextView = currentItemView.findViewById(R.id.duration)
         val lengthView : TextView = currentItemView.findViewById(R.id.length)
-        val iconView : ImageView = currentItemView.findViewById(R.id.image)
 
-        val sharedPreference =  context.getSharedPreferences("test_preferences", Context.MODE_PRIVATE)
-        val currentTheme = sharedPreference.getString("CurrentTheme","Light") as String
-
-
-        //nameView.text = currentRoute?.name ?: "-"
-
-        if (currentTheme == "Dark")
-            nameView.setTextColor(ContextCompat.getColor(context, R.color.white))
-        else
-            nameView.setTextColor(ContextCompat.getColor(context, R.color.black))
+        val sharedPreference =  context.getSharedPreferences(SettingsFragment.SHARED_PREF_KEY, Context.MODE_PRIVATE)
 
         nameView.text = currentRoute?.getLocalizedName(locale.language) ?: "-"
         descriptionView.text = currentRoute?.getLocalizedDescription(locale.language) ?: "-"
 
-
-
-        // shared Preference
-
-        var milesEnabled = sharedPreference?.getBoolean("MilesEnabled", false) ?: false
-        var distanceUnit = ""
-        if(milesEnabled) {
-            distanceUnit = context.getString(R.string.unit_miles)
-        }
-        else {
-            distanceUnit = context.getString(R.string.unit_km)
-        }
-
-
+        val milesEnabled = sharedPreference?.getBoolean(SettingsFragment.MILES_PREF_KEY, false) ?: false
+        val distanceUnit = context.getString(if(milesEnabled) R.string.unit_miles else R.string.unit_km)
         val length = String.format("%.2f", currentRoute?.getLength(milesEnabled)).toString()
 
-
-
-        durationView.text =
-                "${currentRoute?.duration.toString()} ${parent.resources.getString(R.string.unit_min)}"
-        lengthView.text =
-                "${length} ${distanceUnit}"
-
-        if (currentTheme == "Dark")
-            iconView.setImageResource(R.drawable.ic_map_light)
-        else
-            iconView.setImageResource(R.drawable.ic_map)
-
-
-
+        durationView.text = "${currentRoute?.duration?.toString() ?: "-"} ${parent.resources.getString(R.string.unit_min)}"
+        lengthView.text = "${length} ${distanceUnit}"
 
         return currentItemView
     }

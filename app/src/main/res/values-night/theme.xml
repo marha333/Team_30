@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.SetRoute" parent="Theme.MaterialComponents.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/secondaryColor</item>
+        <item name="colorPrimaryVariant">@color/secondaryDarkColor</item>
+        <item name="colorOnPrimary">@color/secondaryTextColor</item>
+        <item name="android:textColorPrimary">@color/secondaryTextColor</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryLightColor</item>
+        <item name="colorOnSecondary">@color/secondaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/primaryDarkColor</item>
+        <!-- Customize your theme here. -->
+        <item name="background">@color/grey900</item>
+        <item name="colorOnBackground">@color/primaryTextColor</item>
+        <item name="colorSurface">@color/grey900</item>
+        <item name="colorOnSurface">@color/grey50</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+</resources>

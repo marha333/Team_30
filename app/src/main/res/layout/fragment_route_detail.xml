@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent" android:background="?backgroundColor">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,41 +16,39 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
-            <ImageView
-                android:id="@+id/header"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                style="@style/Description"
-                tools:ignore="ContentDescription"
-                android:visibility="visible"/>
-            <ImageView
-                android:id="@+id/connectionError"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_baseline_signal_cellular_connected_no_internet_4_bar_24"
-                style="@style/Description"
-                tools:ignore="ContentDescription"
-                android:visibility="invisible"/>
-            <ImageView
-                android:id="@+id/static_map_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                tools:ignore="ContentDescription"
-                android:visibility="invisible"/>
-                <Button
+                <ImageView
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:ignore="ContentDescription"
+                    android:visibility="visible"/>
+                <ImageView
+                    android:id="@+id/connectionError"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_baseline_signal_cellular_connected_no_internet_4_bar_24"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:ignore="ContentDescription"
+                    android:visibility="invisible"/>
+                <ImageView
+                    android:id="@+id/static_map_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    tools:ignore="ContentDescription"
+                    android:visibility="invisible"/>
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/navigation_start_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:spinnerMode="dialog"
-                    android:gravity="bottom"
-                    style="@style/Description"
-                    android:text="Start"/>
+                    android:textAppearance="?attr/textAppearanceButton"
+                    android:text="@string/start"/>
             </RelativeLayout>
 
             <LinearLayout
@@ -65,12 +64,12 @@
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/detailedInfoName"/>
+                    android:textAppearance="?attr/textAppearanceHeadline5"/>
                 <TextView
                     android:id="@+id/information"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="@style/detailedInfoDistance"/>
+                    android:textAppearance="?attr/textAppearanceSubtitle1"/>
             </LinearLayout>
         </RelativeLayout>
 
@@ -79,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            style="@style/Description"/>
+            android:textAppearance="?attr/textAppearanceBody1"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

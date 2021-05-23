@@ -14,14 +14,17 @@
         android:layout_gravity="center_horizontal"
         android:checkedButton="@id/sort_ascending">
 
-        <RadioButton android:id="@+id/sort_ascending"
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/sort_ascending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="20dp"
+            android:paddingEnd="20dp"
             android:maxLines="1"
             style="@style/RadioButtonText"
-            android:text="@string/ascending"/>
-        <RadioButton android:id="@+id/sort_descending"
+            android:text="@string/ascending"
+            tools:ignore="RtlSymmetry" />
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/sort_descending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
@@ -31,7 +34,7 @@
     <Spinner
         android:id="@+id/sort_field"
         android:layout_marginHorizontal="20dp"
-        android:padding="10dp"
+        android:paddingVertical="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/outline"

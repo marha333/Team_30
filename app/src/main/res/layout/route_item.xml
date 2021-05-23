@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -7,23 +8,24 @@
     android:paddingVertical="5dp"
     android:paddingEnd="12dp"
     tools:ignore="RtlSymmetry">
-
     <ImageView
         android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="12dp"
         android:src="@drawable/ic_map"
-        tools:ignore="ContentDescription" />
-    <TextView
+        tools:ignore="ContentDescription"
+        app:tint="?attr/colorPrimary" />
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/image"
         android:singleLine="true"
         android:paddingBottom="2dp"
-        style="@style/ListName"/>
-    <TextView
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:textStyle="bold"/>
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,23 +33,22 @@
         android:layout_toEndOf="@+id/image"
         android:paddingBottom="2dp"
         android:paddingEnd="12dp"
-        style="@style/ListInfo"
-        tools:ignore="RtlSymmetry" />
-    <TextView
+        tools:ignore="RtlSymmetry"
+        android:textAppearance="?attr/textAppearanceListItemSecondary"/>
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/length"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
         android:layout_toEndOf="@+id/duration"
         android:paddingBottom="2dp"
-        style="@style/ListInfo" />
+        android:textAppearance="?attr/textAppearanceListItemSecondary"/>
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/duration"
         android:layout_toEndOf="@+id/image"
-        android:textColor="@android:color/darker_gray"
         android:singleLine="true"
-        style="@style/ListDescription" />
+        android:textAppearance="?attr/textAppearanceListItemSmall"/>
 </RelativeLayout>
