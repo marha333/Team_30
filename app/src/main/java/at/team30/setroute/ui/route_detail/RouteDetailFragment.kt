@@ -21,6 +21,7 @@ import androidx.transition.Visibility
 import at.team30.setroute.Helper.NavigationHelper
 import at.team30.setroute.R
 import at.team30.setroute.ui.settings.SettingsFragment
+import com.google.android.material.button.MaterialButtonToggleGroup
 import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 
