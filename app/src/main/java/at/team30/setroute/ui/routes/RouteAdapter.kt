@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation.findNavController
+import at.team30.setroute.Helper.RouteIconHelper
 import at.team30.setroute.R
 import at.team30.setroute.models.Route
 import com.zeugmasolutions.localehelper.LocaleHelper
@@ -70,12 +71,9 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
                 "${length} ${distanceUnit}"
 
         if (currentTheme == "Dark")
-            iconView.setImageResource(R.drawable.ic_map_light)
+            iconView.setImageResource(RouteIconHelper.getRouteTypeIconIdentifier(currentRoute?.type, true))
         else
-            iconView.setImageResource(R.drawable.ic_map)
-
-
-
+            iconView.setImageResource(RouteIconHelper.getRouteTypeIconIdentifier(currentRoute?.type, false))
 
         return currentItemView
     }
