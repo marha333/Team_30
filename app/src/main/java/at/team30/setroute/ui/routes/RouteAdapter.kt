@@ -30,8 +30,14 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
         val descriptionView : TextView = currentItemView.findViewById(R.id.description)
         val durationView : TextView = currentItemView.findViewById(R.id.duration)
         val lengthView : TextView = currentItemView.findViewById(R.id.length)
+        val isWalked : TextView = currentItemView.findViewById(R.id.is_walked)
 
         val sharedPreference =  context.getSharedPreferences(SettingsFragment.SHARED_PREF_KEY, Context.MODE_PRIVATE)
+
+        if(sharedPreference?.getBoolean("route_walked_${currentRoute?.id}", false) == false)
+            isWalked.visibility = View.GONE
+        else
+            isWalked.visibility = View.VISIBLE
 
         nameView.text = currentRoute?.getLocalizedName(locale.language) ?: "-"
         descriptionView.text = currentRoute?.getLocalizedDescription(locale.language) ?: "-"
@@ -46,6 +52,8 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
                 "${length} ${distanceUnit}"
 
         iconView.setImageResource(RouteIconHelper.getRouteTypeIconIdentifier(currentRoute?.type))
+
+
 
         return currentItemView
     }
