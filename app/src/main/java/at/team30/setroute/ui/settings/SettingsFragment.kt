@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -20,6 +21,12 @@ import com.zeugmasolutions.localehelper.LocaleAwareCompatActivity
 import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
+import javax.mail.Message
+import javax.mail.MessagingException
+import javax.mail.PasswordAuthentication
+import javax.mail.Session
+import javax.mail.internet.InternetAddress
+import javax.mail.internet.MimeMessage
 
 
 @AndroidEntryPoint
@@ -73,6 +80,18 @@ class SettingsFragment : Fragment() {
 
             editor?.commit()
         }
+
+
+        val sendFeedbackButton = view.findViewById(R.id.submit_feedback_button) as Button
+        val feedbackTextView = view.findViewById(R.id.feedback_text_field) as EditText
+
+        sendFeedbackButton.setOnClickListener() {
+            val textFeedback = feedbackTextView.text.toString()
+            viewModel.sendFeedback(textFeedback)
+            feedbackTextView.text.clear()
+        }
+
+
     }
 
     private fun languageDialog() {

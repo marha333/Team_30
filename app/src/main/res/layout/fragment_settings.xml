@@ -63,17 +63,41 @@
             android:layout_height="wrap_content"
             android:text="Feedback"
             style="@style/Description"
-            android:paddingHorizontal="20dp"/>
+            android:paddingHorizontal="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            />
 
         <EditText
+            android:id="@+id/feedback_text_field"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:layout_margin="20dp"
             android:ems="10"
-            android:hint="Feedback"
+            android:hint="Type here..."
             android:inputType="textPersonName"
             android:maxLength="500"
-            android:textAlignment="textStart" />
+            android:textAlignment="textStart"
+            android:gravity="start"
+            android:background="@color/light_grey"
+            android:padding="10dp"
+            />
+
+        <Button
+            android:id="@+id/submit_feedback_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="20dp"
+            style="@style/Description"
+            android:text="@string/submit_button"
+            android:textAllCaps="false"
+            />
+
 
 
 

@@ -6,4 +6,5 @@
     <attr name="infoTextColor" format="color"/>
     <attr name="mapIcon" format="reference"/>
     <attr name="arrowIcon" format="reference"/>
+    <attr name="feedbackBackground" format="color"/>
 </resources>
