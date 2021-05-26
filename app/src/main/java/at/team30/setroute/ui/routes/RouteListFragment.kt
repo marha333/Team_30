@@ -12,6 +12,7 @@ import at.team30.setroute.models.Field
 import at.team30.setroute.models.Interest
 import at.team30.setroute.models.Order
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.slider.RangeSlider
 import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -106,6 +107,11 @@ class RouteListFragment : Fragment() {
 
     private fun filteringDialog() {
         val dialogView: View = this.layoutInflater.inflate(R.layout.filter_dialog, null)
+
+        val durationSlider: RangeSlider = dialogView.findViewById(R.id.duration_slider)
+        val lengthSlider: RangeSlider = dialogView.findViewById(R.id.length_slider)
+        durationSlider.setValues(0f, 120f)
+        lengthSlider.setValues(0f, 20f)
 
         val interests = resources.getStringArray(R.array.filter_options)
 

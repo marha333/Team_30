@@ -39,5 +39,6 @@
         <item>Sport Freaks</item>
         <item>Park Lovers</item>
     </string-array>
-
+    <string name="duration">Duration:</string>
+    <string name="distance">Distance:</string>
 </resources>
