@@ -10,8 +10,8 @@
     tools:ignore="RtlSymmetry">
     <ImageView
         android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:padding="12dp"
         android:src="@drawable/ic_map"
         tools:ignore="ContentDescription"

@@ -10,7 +10,7 @@ class RoutesRepositoryTest {
 
     @Test
     fun getRoutes_returnsThreeElements() {
-        assertEquals(7, sut.getRoutes().size)
+        assertEquals(11, sut.getRoutes().size)
     }
 
     @Test

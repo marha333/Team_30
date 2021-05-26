@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.Navigation.findNavController
+import at.team30.setroute.Helper.RouteIconHelper
 import at.team30.setroute.R
 import at.team30.setroute.models.Route
 import at.team30.setroute.ui.settings.SettingsFragment
@@ -24,6 +25,7 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
         }
 
         val locale = LocaleHelper.getLocale(context)
+        val iconView : ImageView = currentItemView.findViewById(R.id.image)
         val nameView : TextView = currentItemView.findViewById(R.id.name)
         val descriptionView : TextView = currentItemView.findViewById(R.id.description)
         val durationView : TextView = currentItemView.findViewById(R.id.duration)
@@ -37,6 +39,15 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
         val milesEnabled = sharedPreference?.getBoolean(SettingsFragment.MILES_PREF_KEY, false) ?: false
         val distanceUnit = context.getString(if(milesEnabled) R.string.unit_miles else R.string.unit_km)
         val length = String.format("%.2f", currentRoute?.getLength(milesEnabled)).toString()
+
+
+
+        durationView.text =
+                "${currentRoute?.duration.toString()} ${parent.resources.getString(R.string.unit_min)}"
+        lengthView.text =
+                "${length} ${distanceUnit}"
+
+        iconView.setImageResource(RouteIconHelper.getRouteTypeIconIdentifier(currentRoute?.type))
 
         durationView.text = "${currentRoute?.duration?.toString() ?: "-"} ${parent.resources.getString(R.string.unit_min)}"
         lengthView.text = "${length} ${distanceUnit}"
