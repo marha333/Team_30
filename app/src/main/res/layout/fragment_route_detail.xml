@@ -53,18 +53,16 @@
                     android:id="@+id/walked_button_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingHorizontal="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    android:textAppearance="?attr/materialButtonOutlinedStyle"
-                    android:text="Mark as walked">
+                    >
                     <Button
                         android:id="@+id/walked_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/walked_tag"
-                        style="?attr/materialButtonOutlinedStyle"
+                        style="@style/ToggleButton"
                         />
                 </com.google.android.material.button.MaterialButtonToggleGroup>
             </RelativeLayout>

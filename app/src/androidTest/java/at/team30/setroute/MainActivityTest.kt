@@ -1,5 +1,6 @@
 package at.team30.setroute
 
+import android.content.Context
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import androidx.test.espresso.action.ViewActions.click
@@ -12,6 +13,7 @@ import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import at.team30.setroute.infrastructure.DependencyInjection
 import at.team30.setroute.infrastructure.IRoutesRepository
 import at.team30.setroute.ui.MainActivity
+import at.team30.setroute.ui.settings.SettingsFragment
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules

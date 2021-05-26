@@ -7,4 +7,7 @@
         <item name="colorPrimary">?attr/colorSecondary</item>
         <item name="colorOnPrimary">?attr/colorOnSecondary</item>
     </style>
+    <style name="ToggleButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="colorPrimary">?attr/colorPrimary</item>
+    </style>
 </resources>
