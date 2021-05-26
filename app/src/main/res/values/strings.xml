@@ -29,4 +29,15 @@
     </string-array>
     <string name="unit_miles">miles</string>
     <string name="start">Start</string>
+    <!-- Filtering options fields + identifier for mapping -->
+    <string-array name="filter_options">
+        <item>Alcoholics</item>
+        <item>Dog Walk</item>
+        <item>Coffee Lovers</item>
+        <item>Romantic Walk</item>
+        <item>Sightseeing Addicted</item>
+        <item>Sport Freaks</item>
+        <item>Park Lovers</item>
+    </string-array>
+
 </resources>

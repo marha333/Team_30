@@ -5,12 +5,11 @@ import android.view.*
 import android.widget.ListView
 import android.widget.RadioGroup
 import android.widget.Spinner
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import at.team30.setroute.R
 import at.team30.setroute.models.Field
+import at.team30.setroute.models.Interest
 import at.team30.setroute.models.Order
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.zeugmasolutions.localehelper.LocaleHelper
@@ -45,9 +44,9 @@ class RouteListFragment : Fragment() {
             val adapter = RouteAdapter(
                 requireActivity(),
                 routeList
-            );
-            listView.adapter = adapter;
-        });
+            )
+            listView.adapter = adapter
+        })
     }
 
 
@@ -106,8 +105,28 @@ class RouteListFragment : Fragment() {
     }
 
     private fun filteringDialog() {
+        val dialogView: View = this.layoutInflater.inflate(R.layout.filter_dialog, null)
+
+        val interests = resources.getStringArray(R.array.filter_options)
+
+        val fieldSpinner = dialogView.findViewById<Spinner>(R.id.filter_field)
+
+        val listInterests: ArrayList<Interest> = ArrayList()
+
+        for (i in interests) {
+            val interest = Interest()
+            interest.setTitle(i)
+            interest.setSelected(false)
+            listInterests.add(interest)
+        }
+
+        val myAdapter = FilterAdapter(this.requireContext(), 0, listInterests)
+
+        fieldSpinner.adapter = myAdapter
+
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.filter_options))
+            .setView(dialogView)
             .setPositiveButton(getString(R.string.apply)) { dialog, _ ->
                 dialog.dismiss()
             }
