@@ -54,6 +54,32 @@
             style="@style/Description"
             android:text="@string/switch_to_dark_mode" />
 
+
+
+        <TextView
+
+            android:id="@+id/text_feedback_headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Feedback"
+            style="@style/Description"
+            android:paddingHorizontal="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="20dp"
+            android:ems="10"
+            android:hint="Feedback"
+            android:inputType="textPersonName"
+            android:maxLength="500"
+            android:textAlignment="textStart" />
+
+
+
+
+
+
     </LinearLayout>
 
 </FrameLayout>
