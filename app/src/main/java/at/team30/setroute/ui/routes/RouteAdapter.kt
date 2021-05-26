@@ -40,17 +40,12 @@ class RouteAdapter(context: Context, private var items: List<Route>) : ArrayAdap
         val distanceUnit = context.getString(if(milesEnabled) R.string.unit_miles else R.string.unit_km)
         val length = String.format("%.2f", currentRoute?.getLength(milesEnabled)).toString()
 
-
-
         durationView.text =
                 "${currentRoute?.duration.toString()} ${parent.resources.getString(R.string.unit_min)}"
         lengthView.text =
                 "${length} ${distanceUnit}"
 
         iconView.setImageResource(RouteIconHelper.getRouteTypeIconIdentifier(currentRoute?.type))
-
-        durationView.text = "${currentRoute?.duration?.toString() ?: "-"} ${parent.resources.getString(R.string.unit_min)}"
-        lengthView.text = "${length} ${distanceUnit}"
 
         return currentItemView
     }
