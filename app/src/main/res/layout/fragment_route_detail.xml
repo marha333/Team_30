@@ -63,7 +63,7 @@
                         android:id="@+id/walked_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Walked"
+                        android:text="@string/walked_tag"
                         style="?attr/materialButtonOutlinedStyle"
                         />
                 </com.google.android.material.button.MaterialButtonToggleGroup>

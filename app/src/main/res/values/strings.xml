@@ -29,4 +29,5 @@
     </string-array>
     <string name="unit_miles">miles</string>
     <string name="start">Start</string>
+    <string name="walked_tag">walked</string>
 </resources>

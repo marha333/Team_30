@@ -51,7 +51,7 @@
         android:layout_below="@+id/name"
         android:layout_toEndOf="@+id/length"
         android:paddingBottom="2dp"
-        android:text="walked"
+        android:text="@string/walked_tag"
         android:background="@drawable/background_walked_tag"
         android:textAppearance="?attr/textAppearanceListItemSecondary"/>
     <TextView

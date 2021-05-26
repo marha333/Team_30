@@ -18,6 +18,7 @@
     <string name="ascending">По возрастанию</string>
     <string name="descending">По убыванию</string>
     <string name="start">Начинать</string>
+    <string name="walked_tag">пройдено</string>
     <!-- Sorting options fields + identifier for mapping -->
     <string-array name="sort_options">
         <item>Название</item>
