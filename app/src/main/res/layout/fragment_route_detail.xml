@@ -50,7 +50,7 @@
                     android:textAppearance="?attr/textAppearanceButton"
                     android:text="@string/start"/>
                 <com.google.android.material.button.MaterialButtonToggleGroup
-                    android:id="@+id/navigation_walked_button"
+                    android:id="@+id/walked_button_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="10dp"
@@ -60,7 +60,7 @@
                     android:textAppearance="?attr/materialButtonOutlinedStyle"
                     android:text="Mark as walked">
                     <Button
-                        android:id="@+id/button1"
+                        android:id="@+id/walked_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Walked"
