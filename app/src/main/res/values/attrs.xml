@@ -7,4 +7,5 @@
     <attr name="mapIcon" format="reference"/>
     <attr name="arrowIcon" format="reference"/>
     <attr name="feedbackBackground" format="color"/>
+    <attr name="feedbackTextColor" format="color"/>
 </resources>

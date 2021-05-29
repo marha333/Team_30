@@ -10,8 +10,11 @@ import javax.mail.internet.MimeMessage
 
 
 class EmailHelper {
+    enum class EmailResult {ERROR, SUCCESS, UNKNOWN}
     companion object {
-        suspend fun sendEmail(text: String, receiver: String) {
+        suspend fun sendEmail(text: String, receiver: String): EmailResult {
+            // https://gist.github.com/BlackthornYugen/1b3e1ff4426294e7054c9a7190e8f2cd
+
             val userName =  "setroute30@gmail.com"
             val password =  "team30setroute"
             val emailFrom = "setroute30@gmail.com"
@@ -48,7 +51,9 @@ class EmailHelper {
                 smtpTransport.close()
             } catch (messagingException: MessagingException) {
                 messagingException.printStackTrace()
+                return EmailResult.ERROR;
             }
+        return EmailResult.SUCCESS;
         }
     }
 }
