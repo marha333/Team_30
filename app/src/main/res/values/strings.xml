@@ -30,4 +30,5 @@
     <string name="unit_miles">miles</string>
     <string name="feedback" >Feedback</string>
     <string name="submit_button">Submit</string>
+    <string name="start">Start</string>
 </resources>
