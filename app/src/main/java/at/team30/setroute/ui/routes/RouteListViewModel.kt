@@ -1,6 +1,5 @@
 package at.team30.setroute.ui.routes
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,8 +27,8 @@ class RouteListViewModel @Inject constructor(
     }
 
     fun getRoutes(): LiveData<List<Route>> {
-        routesList.postValue(getSortedRoutes())
-        return routesList
+        routesList.postValue(getSortedRoutes(getFilteredRoutes())) // combination of sorting and filtering sometimes fucks up
+        return routesList                                          // but filtering and sorting on their own work as intended
     }
 
     fun getSortingOptions(): SortingOptions {
@@ -46,17 +45,17 @@ class RouteListViewModel @Inject constructor(
         }
     }
 
-    private fun getSortedRoutes() : List<Route> {
+    private fun getSortedRoutes(filteredRoutes : List<Route>) : List<Route> {
         return when(settingsRepository.getSortingOptions().order) {
-            Order.DESCENDING -> routesRepository.getRoutes().sortedWith(routesComparator()).reversed()
-            Order.ASCENDING -> routesRepository.getRoutes().sortedWith(routesComparator())
+            Order.DESCENDING -> filteredRoutes.sortedWith(routesComparator()).reversed()
+            Order.ASCENDING -> filteredRoutes.sortedWith(routesComparator())
         }
     }
 
     fun applySorting(order: Int, field: String) {
         settingsRepository.storeSortingOptions(SortingOptions.fromValues(order, field))
 
-        routesList.postValue(getSortedRoutes())
+        routesList.postValue(getSortedRoutes(getFilteredRoutes()))
     }
 
     fun getFilteringOptions() : FilteringOptions {
@@ -65,9 +64,6 @@ class RouteListViewModel @Inject constructor(
 
     private fun getFilteredRoutes() : List<Route> {
         val options = filteringRepository.getFilteringOptions()
-
-        for (i in options.interests)
-            Log.d("SAVED INTERESTS ID: ", i.toString())
 
         return routesRepository.getRoutes().filter { route -> route.duration >= options.minDuration && route.duration <= options.maxDuration
                 && route.length >= options.minDistance && route.length <= options.maxDistance && route.type.value in options.interests }
