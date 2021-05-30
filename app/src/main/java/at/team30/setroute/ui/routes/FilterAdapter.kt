@@ -16,6 +16,10 @@ class FilterAdapter(context: Context, resource: Int, objects: ArrayList<Interest
     private var listState: ArrayList<Interest> = objects
     private var isFromView = false
 
+    fun getListState(): ArrayList<Interest> {
+        return listState
+    }
+
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
         return getCustomView(position, convertView, parent)
     }

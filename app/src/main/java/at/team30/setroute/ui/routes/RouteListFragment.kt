@@ -15,7 +15,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.slider.RangeSlider
 import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 
 @AndroidEntryPoint
@@ -110,8 +109,6 @@ class RouteListFragment : Fragment() {
 
         val durationSlider: RangeSlider = dialogView.findViewById(R.id.duration_slider)
         val lengthSlider: RangeSlider = dialogView.findViewById(R.id.length_slider)
-        durationSlider.setValues(0f, 120f)
-        lengthSlider.setValues(0f, 20f)
 
         val interests = resources.getStringArray(R.array.filter_options)
 
@@ -133,6 +130,10 @@ class RouteListFragment : Fragment() {
             listInterests.add(interest)
         }
 
+        durationSlider.setValues(options.minDuration, options.maxDuration)
+
+        lengthSlider.setValues(options.minDistance, options.maxDistance)
+
         val myAdapter = FilterAdapter(this.requireContext(), 0, listInterests)
 
         fieldSpinner.adapter = myAdapter
@@ -141,8 +142,21 @@ class RouteListFragment : Fragment() {
             .setTitle(getString(R.string.filter_options))
             .setView(dialogView)
             .setPositiveButton(getString(R.string.apply)) { dialog, _ ->
+                val minDuration = durationSlider.values[0]
+                val maxDuration = durationSlider.values[1]
+                val minDistance = lengthSlider.values[0]
+                val maxDistance = lengthSlider.values[1]
                 dialog.dismiss()
-                //viewModel.applyFiltering((fieldSpinner.adapter as FilterAdapter).getListState(), 0, 20, 0, 120)
+
+                val checkedInterests : ArrayList<Int> = ArrayList()
+
+                for ((counter, k) in myAdapter.getListState().withIndex()) {
+                    if (k.isSelected()) {
+                        checkedInterests.add(counter - 1) // because the interest number 0 is a spinner title
+                    }
+                }
+
+                viewModel.applyFiltering(checkedInterests, minDistance, maxDistance, minDuration, maxDuration)
             }
             .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
                 dialog.dismiss()
