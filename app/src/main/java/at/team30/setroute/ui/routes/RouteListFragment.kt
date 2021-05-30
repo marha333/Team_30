@@ -118,11 +118,18 @@ class RouteListFragment : Fragment() {
         val fieldSpinner = dialogView.findViewById<Spinner>(R.id.filter_field)
 
         val listInterests: ArrayList<Interest> = ArrayList()
+        val spinnerTitle = Interest() // i couldn't think of anything else
+        spinnerTitle.setTitle("Interests")
+        listInterests.add(spinnerTitle)
 
-        for (i in interests) {
+        val options = viewModel.getFilteringOptions()
+        val checkedBoxes = options.interests
+
+        for ((counter, i) in interests.withIndex()) {
             val interest = Interest()
             interest.setTitle(i)
-            interest.setSelected(false)
+            if (checkedBoxes.contains(counter))
+                interest.setSelected(true)
             listInterests.add(interest)
         }
 
@@ -135,6 +142,7 @@ class RouteListFragment : Fragment() {
             .setView(dialogView)
             .setPositiveButton(getString(R.string.apply)) { dialog, _ ->
                 dialog.dismiss()
+                //viewModel.applyFiltering((fieldSpinner.adapter as FilterAdapter).getListState(), 0, 20, 0, 120)
             }
             .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
                 dialog.dismiss()

@@ -27,4 +27,10 @@ object DependencyInjection {
     fun provideSettingRepository(): ISettingRepository {
         return SettingRepository()
     }
+
+    @Singleton
+    @Provides
+    fun provideFilterRepository(): IFilterRepository {
+        return FilteringRepository()
+    }
 }

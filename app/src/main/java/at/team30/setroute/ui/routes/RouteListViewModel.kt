@@ -3,6 +3,7 @@ package at.team30.setroute.ui.routes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import at.team30.setroute.infrastructure.IFilterRepository
 import at.team30.setroute.infrastructure.IRoutesRepository
 import at.team30.setroute.infrastructure.ISettingRepository
 import at.team30.setroute.models.*
@@ -12,7 +13,8 @@ import javax.inject.Inject
 @HiltViewModel
 class RouteListViewModel @Inject constructor(
     private val routesRepository : IRoutesRepository,
-    private val settingsRepository : ISettingRepository
+    private val settingsRepository : ISettingRepository,
+    private val filteringRepository: IFilterRepository
 ) : ViewModel() {
 
     var language : String = Language.ENGLISH.code
@@ -21,7 +23,6 @@ class RouteListViewModel @Inject constructor(
 
     init {
         val result = routesRepository.getRoutes()
-        result
         routesList.value = result
     }
 
@@ -57,6 +58,19 @@ class RouteListViewModel @Inject constructor(
         routesList.postValue(getSortedRoutes())
     }
 
-}
+    fun getFilteringOptions() : FilteringOptions {
+        return filteringRepository.getFilteringOptions()
+    }
 
+    private fun getFilteredRoutes() {
+
+    }
+
+    fun applyFiltering(interests: List<Int>, minDistance: Int, maxDistance: Int, minDuration: Int, maxDuration: Int) {
+        filteringRepository.storeFilteringOptions(FilteringOptions.fromValues(interests, minDistance, maxDistance, minDuration, maxDuration))
+
+        //routesList.postValue(getFilteredRoutes())
+    }
+
+}
 
