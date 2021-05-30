@@ -1,9 +1,7 @@
 package at.team30.setroute
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import at.team30.setroute.infrastructure.IRoutesRepository
-import at.team30.setroute.infrastructure.ISettingRepository
-import at.team30.setroute.infrastructure.SettingRepository
+import at.team30.setroute.infrastructure.*
 import at.team30.setroute.models.Field
 import at.team30.setroute.models.Order
 import at.team30.setroute.models.Route
@@ -27,6 +25,7 @@ class RoutesListViewModelTest {
 
     private val mockRepository: IRoutesRepository = mockk()
     private val settingRepository : ISettingRepository = SettingRepository()
+    private val filteringRepository : IFilterRepository = FilteringRepository()
 
     @Before
     fun init() {
@@ -50,7 +49,7 @@ class RoutesListViewModelTest {
     }
 
     private fun given_viewModel(): RouteListViewModel {
-        return RouteListViewModel(mockRepository, settingRepository)
+        return RouteListViewModel(mockRepository, settingRepository, filteringRepository)
     }
 
     private fun given_routes_in_repository(routes: List<Route>) {
