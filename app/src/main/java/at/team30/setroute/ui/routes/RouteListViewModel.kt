@@ -1,5 +1,6 @@
 package at.team30.setroute.ui.routes
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -62,14 +63,20 @@ class RouteListViewModel @Inject constructor(
         return filteringRepository.getFilteringOptions()
     }
 
-    private fun getFilteredRoutes() {
+    private fun getFilteredRoutes() : List<Route> {
+        val options = filteringRepository.getFilteringOptions()
 
+        for (i in options.interests)
+            Log.d("SAVED INTERESTS ID: ", i.toString())
+
+        return routesRepository.getRoutes().filter { route -> route.duration >= options.minDuration && route.duration <= options.maxDuration
+                && route.length >= options.minDistance && route.length <= options.maxDistance && route.type.value in options.interests }
     }
 
     fun applyFiltering(interests: List<Int>, minDistance: Float, maxDistance: Float, minDuration: Float, maxDuration: Float) {
         filteringRepository.storeFilteringOptions(FilteringOptions.fromValues(interests, minDistance, maxDistance, minDuration, maxDuration))
 
-        //routesList.postValue(getFilteredRoutes())
+        routesList.postValue(getFilteredRoutes())
     }
 
 }

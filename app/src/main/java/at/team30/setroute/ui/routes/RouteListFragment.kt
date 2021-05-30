@@ -1,6 +1,7 @@
 package at.team30.setroute.ui.routes
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.ListView
 import android.widget.RadioGroup
@@ -125,7 +126,7 @@ class RouteListFragment : Fragment() {
         for ((counter, i) in interests.withIndex()) {
             val interest = Interest()
             interest.setTitle(i)
-            if (checkedBoxes.contains(counter))
+            if (checkedBoxes.contains(counter + 1))
                 interest.setSelected(true)
             listInterests.add(interest)
         }
@@ -152,7 +153,7 @@ class RouteListFragment : Fragment() {
 
                 for ((counter, k) in myAdapter.getListState().withIndex()) {
                     if (k.isSelected()) {
-                        checkedInterests.add(counter - 1) // because the interest number 0 is a spinner title
+                        checkedInterests.add(counter) // because the interest number 0 is a spinner title
                     }
                 }
 

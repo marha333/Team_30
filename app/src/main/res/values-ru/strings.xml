@@ -31,13 +31,13 @@
     </string-array>
     <!-- Filtering options fields + identifier for mapping -->
     <string-array name="filter_options">
-        <item>Алкотур</item>
-        <item>Прогулка с собакой</item>
-        <item>Кофе</item>
-        <item>Романтическая прогулка</item>
-        <item>Достопримечательности</item>
-        <item>Спортсмен</item>
         <item>Парки</item>
+        <item>Достопримечательности</item>
+        <item>Кофе</item>
+        <item>Прогулка с собакой</item>
+        <item>Алкотур</item>
+        <item>Романтическая прогулка</item>
+        <item>Спортсмен</item>
     </string-array>
     <string name="duration">Длительность:</string>
     <string name="distance">Расстояние:</string>

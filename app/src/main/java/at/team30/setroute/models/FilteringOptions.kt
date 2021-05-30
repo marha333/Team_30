@@ -1,7 +1,7 @@
 package at.team30.setroute.models
 
 class FilteringOptions (
-    var interests: List<Int> = listOf(0, 1, 2, 3, 4, 5, 6),
+    var interests: List<Int> = listOf(1, 2, 3, 4, 5, 6, 7),
     var minDistance: Float = 0f,
     var maxDistance: Float = 20f,
     var minDuration: Float = 0f,

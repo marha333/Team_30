@@ -58,8 +58,7 @@ class FilterAdapter(context: Context, resource: Int, objects: ArrayList<Interest
 
         holder.mCheckBox.tag = position
 
-        holder.mCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
-            val getPosition = buttonView.tag as Int
+        holder.mCheckBox.setOnCheckedChangeListener { _, isChecked ->
             if (!isFromView) {
                 listState[position].setSelected(isChecked)
             }

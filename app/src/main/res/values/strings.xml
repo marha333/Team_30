@@ -31,13 +31,13 @@
     <string name="start">Start</string>
     <!-- Filtering options fields + identifier for mapping -->
     <string-array name="filter_options">
-        <item>Alcoholics</item>
-        <item>Dog Walk</item>
-        <item>Coffee Lovers</item>
-        <item>Romantic Walk</item>
-        <item>Sightseeing Addicted</item>
-        <item>Sport Freaks</item>
         <item>Park Lovers</item>
+        <item>Sightseeing Addicted</item>
+        <item>Coffee Lovers</item>
+        <item>Dog Walk</item>
+        <item>Alcoholics</item>
+        <item>Romantic Walk</item>
+        <item>Sport Freaks</item>
     </string-array>
     <string name="duration">Duration:</string>
     <string name="distance">Distance:</string>
