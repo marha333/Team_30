@@ -13,6 +13,7 @@ import androidx.core.app.ActivityCompat.recreate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import at.team30.setroute.Helper.EmailHelper
+import at.team30.setroute.Helper.IEmailHelper
 import at.team30.setroute.R
 import at.team30.setroute.models.Language
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -80,10 +81,10 @@ class SettingsFragment : Fragment() {
             val textFeedback = feedbackTextView.text.toString()
             viewModel.sendFeedback(textFeedback)
             viewModel.emailResult.observe(viewLifecycleOwner, {
-                if(it == EmailHelper.EmailResult.SUCCESS){
+                if(it == IEmailHelper.EmailResult.SUCCESS){
                     Toast.makeText(context, "Thanks for the feedback!", Toast.LENGTH_LONG).show()
                     feedbackTextView.text.clear()
-                }else if(it == EmailHelper.EmailResult.ERROR){
+                }else if(it == IEmailHelper.EmailResult.ERROR){
                     Toast.makeText(context, "Error sending feedback", Toast.LENGTH_LONG).show();
                 }
             })
