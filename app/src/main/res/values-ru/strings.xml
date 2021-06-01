@@ -17,6 +17,8 @@
     <string name="filter_options">Варианты фильтров:</string>
     <string name="ascending">По возрастанию</string>
     <string name="descending">По убыванию</string>
+    <string name="feedback" >Отзыв</string>
+    <string name="submit_button">Отправить</string>
     <string name="start">Начинать</string>
     <!-- Sorting options fields + identifier for mapping -->
     <string-array name="sort_options">

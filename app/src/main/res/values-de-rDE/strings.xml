@@ -28,5 +28,7 @@
         <item>distance</item>
     </string-array>
     <string name="unit_miles">meilen</string>
+    <string name="feedback" >Feedback</string>
+    <string name="submit_button">" Senden"</string>
     <string name="start">Starten</string>
 </resources>
