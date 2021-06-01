@@ -50,31 +50,6 @@
             android:text="@string/switch_to_dark_mode" />
 
 
-
-<!--        <TextView-->
-
-<!--            android:id="@+id/text_feedback_headline"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Feedback"-->
-
-<!--            android:paddingHorizontal="20dp"-->
-<!--            android:layout_marginTop="20dp"/>-->
-
-    <!--        <EditText-->
-<!--            android:id="@+id/feedback_text_field"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="250dp"-->
-<!--            android:layout_margin="20dp"-->
-<!--            android:ems="10"-->
-<!--            android:hint="Type here..."-->
-<!--            android:inputType="textPersonName"-->
-<!--            android:maxLength="500"-->
-<!--            android:textAlignment="textStart"-->
-<!--            android:gravity="start"-->
-<!--            android:padding="10dp"-->
-<!--            />-->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_margin="20dp"
         android:layout_width="match_parent"

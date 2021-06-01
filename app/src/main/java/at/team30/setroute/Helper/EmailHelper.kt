@@ -40,7 +40,6 @@ class EmailHelper {
                 val mimeMessage = MimeMessage(session)
                 mimeMessage.setFrom(InternetAddress(emailFrom))
                 mimeMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(receiver, false))
-                //mimeMessage.setRecipients(Message.RecipientType.CC, InternetAddress.parse(emailCC, false))
                 mimeMessage.setText(text)
                 mimeMessage.subject = subject
                 mimeMessage.sentDate = Date()
