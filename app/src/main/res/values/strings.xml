@@ -31,4 +31,17 @@
     <string name="feedback" >Feedback</string>
     <string name="submit_button">Submit</string>
     <string name="start">Start</string>
+    <string name="walked_tag">walked</string>
+    <!-- Filtering options fields + identifier for mapping -->
+    <string-array name="filter_options">
+        <item>Park Lovers</item>
+        <item>Sightseeing Addicted</item>
+        <item>Coffee Lovers</item>
+        <item>Dog Walk</item>
+        <item>Alcoholics</item>
+        <item>Romantic Walk</item>
+        <item>Sport Freaks</item>
+    </string-array>
+    <string name="duration">Duration:</string>
+    <string name="distance">Distance:</string>
 </resources>

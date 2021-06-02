@@ -20,6 +20,7 @@
     <string name="feedback" >Отзыв</string>
     <string name="submit_button">Отправить</string>
     <string name="start">Начинать</string>
+    <string name="walked_tag">пройдено</string>
     <!-- Sorting options fields + identifier for mapping -->
     <string-array name="sort_options">
         <item>Название</item>
@@ -31,4 +32,16 @@
         <item>duration</item>
         <item>distance</item>
     </string-array>
+    <!-- Filtering options fields + identifier for mapping -->
+    <string-array name="filter_options">
+        <item>Парки</item>
+        <item>Достопримечательности</item>
+        <item>Кофе</item>
+        <item>Прогулка с собакой</item>
+        <item>Алкотур</item>
+        <item>Романтическая прогулка</item>
+        <item>Спортсмен</item>
+    </string-array>
+    <string name="duration">Длительность:</string>
+    <string name="distance">Расстояние:</string>
 </resources>

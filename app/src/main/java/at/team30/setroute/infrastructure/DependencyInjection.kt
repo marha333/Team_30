@@ -32,6 +32,12 @@ object DependencyInjection {
 
     @Singleton
     @Provides
+    fun provideFilterRepository(): IFilterRepository {
+        return FilteringRepository()
+    }
+
+    @Singleton
+    @Provides
     fun provideEmailHelper(): IEmailHelper {
         return EmailHelper()
     }

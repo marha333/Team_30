@@ -6,9 +6,11 @@ import android.graphics.Picture
 import android.graphics.drawable.BitmapDrawable
 import android.util.Log
 import androidx.lifecycle.*
+import at.team30.setroute.R
 import at.team30.setroute.infrastructure.IImageRepository
 import at.team30.setroute.infrastructure.IRoutesRepository
 import at.team30.setroute.models.Route
+import com.google.android.material.button.MaterialButtonToggleGroup
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

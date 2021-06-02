@@ -53,4 +53,10 @@ class MockDependencyInjection {
             sender = "testSender666@test.it"
         )
     }
+
+    @Singleton
+    @Provides
+    fun provideFilteringRepository(): IFilterRepository {
+        return FilteringRepository()
+    }
 }
