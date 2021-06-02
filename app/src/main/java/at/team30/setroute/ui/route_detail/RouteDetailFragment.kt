@@ -21,6 +21,7 @@ import androidx.transition.Visibility
 import at.team30.setroute.Helper.NavigationHelper
 import at.team30.setroute.R
 import at.team30.setroute.ui.settings.SettingsFragment
+import com.google.android.material.button.MaterialButtonToggleGroup
 import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -84,5 +85,17 @@ class RouteDetailFragment : Fragment() {
             }
         }
         viewModel.getImageLiveData().observe(viewLifecycleOwner,imageObserver);
+
+        val walkedButton = view.findViewById<MaterialButtonToggleGroup>(R.id.walked_button_group);
+
+        walkedButton.addOnButtonCheckedListener { _, _, isChecked ->
+            val editor = sharedPreference?.edit()
+            editor?.putBoolean("route_walked_${args.routeId}", isChecked)
+            editor?.apply()
+        }
+        if(sharedPreference?.getBoolean("route_walked_${args.routeId}", false) == true)
+            walkedButton.check(R.id.walked_button)
+        else
+            walkedButton.uncheck(R.id.walked_button)
     }
 }

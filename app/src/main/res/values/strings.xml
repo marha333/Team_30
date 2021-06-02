@@ -31,6 +31,7 @@
     <string name="feedback" >Feedback</string>
     <string name="submit_button">Submit</string>
     <string name="start">Start</string>
+    <string name="walked_tag">walked</string>
     <!-- Filtering options fields + identifier for mapping -->
     <string-array name="filter_options">
         <item>Park Lovers</item>

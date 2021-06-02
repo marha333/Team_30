@@ -20,6 +20,7 @@
     <string name="feedback" >Отзыв</string>
     <string name="submit_button">Отправить</string>
     <string name="start">Начинать</string>
+    <string name="walked_tag">пройдено</string>
     <!-- Sorting options fields + identifier for mapping -->
     <string-array name="sort_options">
         <item>Название</item>

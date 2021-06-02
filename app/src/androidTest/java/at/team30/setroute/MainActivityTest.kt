@@ -14,6 +14,7 @@ import androidx.test.rule.GrantPermissionRule
 import at.team30.setroute.infrastructure.DependencyInjection
 import at.team30.setroute.infrastructure.IRoutesRepository
 import at.team30.setroute.ui.MainActivity
+import at.team30.setroute.ui.settings.SettingsFragment
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
