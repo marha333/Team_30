@@ -72,7 +72,7 @@ class RouteListViewModel @Inject constructor(
     fun applyFiltering(interests: List<Int>, minDistance: Float, maxDistance: Float, minDuration: Float, maxDuration: Float) {
         filteringRepository.storeFilteringOptions(FilteringOptions.fromValues(interests, minDistance, maxDistance, minDuration, maxDuration))
 
-        routesList.postValue(getFilteredRoutes())
+        routesList.postValue(getSortedRoutes(getFilteredRoutes()))
     }
 
 }
