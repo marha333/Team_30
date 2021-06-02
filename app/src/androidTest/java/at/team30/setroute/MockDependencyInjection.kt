@@ -1,5 +1,7 @@
 package at.team30.setroute
 
+import at.team30.setroute.Helper.EmailHelper
+import at.team30.setroute.Helper.IEmailHelper
 import at.team30.setroute.infrastructure.*
 import dagger.Module
 import dagger.Provides
@@ -37,5 +39,18 @@ class MockDependencyInjection {
     @Provides
     fun provideSettingRepository(): ISettingRepository {
         return SettingRepository()
+    }
+
+    @Singleton
+    @Provides
+    fun provideEmailHelper(): IEmailHelper {
+        return EmailHelper(
+            smtpPort = 666,
+            smtpHost = "localhost",
+            userName = null,
+            authenticate = false,
+            password = null,
+            sender = "testSender666@test.it"
+        )
     }
 }
