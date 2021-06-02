@@ -38,4 +38,10 @@ class MockDependencyInjection {
     fun provideSettingRepository(): ISettingRepository {
         return SettingRepository()
     }
+
+    @Singleton
+    @Provides
+    fun provideFilteringRepository(): IFilterRepository {
+        return FilteringRepository()
+    }
 }
