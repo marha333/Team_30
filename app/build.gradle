@@ -36,6 +36,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    packagingOptions {
+        exclude 'META-INF/NOTICE.md'
+        exclude 'META-INF/LICENSE.md'
+    }
 }
 
 dependencies {
@@ -93,6 +97,10 @@ dependencies {
     implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-native:1.0.15'
     //htttp request lib
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
+
+    // Email
+    implementation 'com.sun.mail:android-mail:1.6.7'
+    implementation 'com.sun.mail:android-activation:1.6.7'
 }
 
 String getApiKey() {

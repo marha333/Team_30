@@ -13,6 +13,8 @@
         <item name="android:textColorSecondary">@color/secondaryTextColor</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/primaryDarkColor</item>
+
+        <item name="feedbackTextColor">@color/white</item>
         <!-- Customize your theme here. -->
         <item name="background">@color/grey900</item>
         <item name="colorOnBackground">@color/white</item>
@@ -20,5 +22,6 @@
         <item name="colorOnSurface">@color/white</item>
         <item name="android:textColor">@color/white</item>
         <item name="materialButtonStyle">@style/Widget.App.Button</item>
+        <item name="feedbackBackground">@color/grey700</item>
     </style>
 </resources>

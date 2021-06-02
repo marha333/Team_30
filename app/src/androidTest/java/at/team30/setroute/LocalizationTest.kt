@@ -1,11 +1,13 @@
 package at.team30.setroute
 
+import android.Manifest
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.rule.GrantPermissionRule
 import at.team30.setroute.infrastructure.DependencyInjection
 import at.team30.setroute.infrastructure.IRoutesRepository
 import at.team30.setroute.models.Language
@@ -29,6 +31,9 @@ class LocalizationTest {
 
     @get:Rule(order = 1)
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
+
+    @get:Rule(order = 2)
+    val runtimePermissionRule: GrantPermissionRule = GrantPermissionRule.grant(Manifest.permission.ACCESS_FINE_LOCATION)
 
     @Inject
     lateinit var routesRepository: IRoutesRepository

@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="backgroundColor" format="color"/>
+    <attr name="secondaryBackgroundColor" format="color"/>
+    <attr name="colorTitle" format="color"/>
+    <attr name="infoTextColor" format="color"/>
+    <attr name="mapIcon" format="reference"/>
+    <attr name="arrowIcon" format="reference"/>
+    <attr name="feedbackBackground" format="color"/>
+    <attr name="feedbackTextColor" format="color"/>
 </resources>

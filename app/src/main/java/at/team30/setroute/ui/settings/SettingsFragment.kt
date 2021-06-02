@@ -7,9 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.core.app.ActivityCompat.recreate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import at.team30.setroute.Helper.EmailHelper
 import at.team30.setroute.R
 import at.team30.setroute.models.Language
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -18,6 +21,7 @@ import com.zeugmasolutions.localehelper.LocaleAwareCompatActivity
 import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
+
 
 
 @AndroidEntryPoint
@@ -66,6 +70,28 @@ class SettingsFragment : Fragment() {
             editor?.putBoolean(MILES_PREF_KEY, isChecked)
             editor?.commit()
         }
+
+
+        val sendFeedbackButton = view.findViewById(R.id.submit_feedback_button) as Button
+        val feedbackTextView = view.findViewById(R.id.feedback_text_field) as EditText
+
+
+        sendFeedbackButton.setOnClickListener() {
+            val textFeedback = feedbackTextView.text.toString()
+            viewModel.sendFeedback(textFeedback)
+            viewModel.emailResult.observe(viewLifecycleOwner, {
+                if(it == EmailHelper.EmailResult.SUCCESS){
+                    Toast.makeText(context, "Thanks for the feedback!", Toast.LENGTH_LONG).show()
+                    feedbackTextView.text.clear()
+                }else if(it == EmailHelper.EmailResult.ERROR){
+                    Toast.makeText(context, "Error sending feedback", Toast.LENGTH_LONG).show();
+                }
+            })
+
+
+        }
+
+
     }
 
     private fun languageDialog() {
